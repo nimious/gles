@@ -3,4 +3,5 @@ nimcache/
 .directory
 *.dll
 *.exe
+*.pdn
 *.sublime*
