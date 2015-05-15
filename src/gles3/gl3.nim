@@ -11,356 +11,356 @@ include gles2/gl2
 
 
 type
-  GLhalf* = cushort
+  GlHalf* = cushort
 
 
 const
-  glReadBuffer* = 0x00000C02
-  glUnpackRowLength* = 0x00000CF2
-  glUnpackSkipRows* = 0x00000CF3
-  glUnpackSkipPixels* = 0x00000CF4
-  glPackRowLength* = 0x00000D02
-  glPackSkipRows* = 0x00000D03
-  glPackSkipPixels* = 0x00000D04
-  glColor* = 0x00001800
-  glDepth* = 0x00001801
-  glStencil* = 0x00001802
-  glRed* = 0x00001903
-  glRgb8* = 0x00008051
-  glRgba8* = 0x00008058
-  glRgb10A2* = 0x00008059
-  glTextureBinding3d* = 0x0000806A
-  glUnpackSkipImages* = 0x0000806D
-  glUnpackImageHeight* = 0x0000806E
-  glTexture3d* = 0x0000806F
-  glTextureWrapR* = 0x00008072
-  glMax3dTextureSize* = 0x00008073
-  glUnsignedInt2101010Rev* = 0x00008368
-  glMaxElementsVertices* = 0x000080E8
-  glMaxElementsIndices* = 0x000080E9
-  glTextureMinLod* = 0x0000813A
-  glTextureMaxLod* = 0x0000813B
-  glTextureBaseLevel* = 0x0000813C
-  glTextureMaxLevel* = 0x0000813D
-  glMin* = 0x00008007
-  glMax* = 0x00008008
-  glDepthComponent24* = 0x000081A6
-  glMaxTextureLodBias* = 0x000084FD
-  glTextureCompareMode* = 0x0000884C
-  glTextureCompareFunc* = 0x0000884D
-  glCurrentQuery* = 0x00008865
-  glQueryResult* = 0x00008866
-  glQueryResultAvailable* = 0x00008867
-  glBufferMapped* = 0x000088BC
-  glBufferMapPointer* = 0x000088BD
-  glStreamRead* = 0x000088E1
-  glStreamCopy* = 0x000088E2
-  glStaticRead* = 0x000088E5
-  glStaticCopy* = 0x000088E6
-  glDynamicRead* = 0x000088E9
-  glDynamicCopy* = 0x000088EA
-  glMaxDrawBuffers* = 0x00008824
-  glDrawBuffer0* = 0x00008825
-  glDrawBuffer1* = 0x00008826
-  glDrawBuffer2* = 0x00008827
-  glDrawBuffer3* = 0x00008828
-  glDrawBuffer4* = 0x00008829
-  glDrawBuffer5* = 0x0000882A
-  glDrawBuffer6* = 0x0000882B
-  glDrawBuffer7* = 0x0000882C
-  glDrawBuffer8* = 0x0000882D
-  glDrawBuffer9* = 0x0000882E
-  glDrawBuffer10* = 0x0000882F
-  glDrawBuffer11* = 0x00008830
-  glDrawBuffer12* = 0x00008831
-  glDrawBuffer13* = 0x00008832
-  glDrawBuffer14* = 0x00008833
-  glDrawBuffer15* = 0x00008834
-  glMaxFragmentUniformComponents* = 0x00008B49
-  glMaxVertexUniformComponents* = 0x00008B4A
-  glSampler3d* = 0x00008B5F
-  glSampler2dShadow* = 0x00008B62
-  glFragmentShaderDerivativeHint* = 0x00008B8B
-  glPixelPackBuffer* = 0x000088EB
-  glPixelUnpackBuffer* = 0x000088EC
-  glPixelPackBufferBinding* = 0x000088ED
-  glPixelUnpackBufferBinding* = 0x000088EF
-  gLFLOATMAT2x3* = 0x00008B65
-  gLFLOATMAT2x4* = 0x00008B66
-  gLFLOATMAT3x2* = 0x00008B67
-  gLFLOATMAT3x4* = 0x00008B68
-  gLFLOATMAT4x2* = 0x00008B69
-  gLFLOATMAT4x3* = 0x00008B6A
-  glSrgb* = 0x00008C40
-  glSrgb8* = 0x00008C41
-  glSrgb8Alpha8* = 0x00008C43
-  glCompareRefToTexture* = 0x0000884E
-  glMajorVersion* = 0x0000821B
-  glMinorVersion* = 0x0000821C
-  glNumExtensions* = 0x0000821D
-  glRgba32f* = 0x00008814
-  glRgb32f* = 0x00008815
-  glRgba16f* = 0x0000881A
-  glRgb16f* = 0x0000881B
-  glVertexAttribArrayInteger* = 0x000088FD
-  glMaxArrayTextureLayers* = 0x000088FF
-  glMinProgramTexelOffset* = 0x00008904
-  glMaxProgramTexelOffset* = 0x00008905
-  glMaxVaryingComponents* = 0x00008B4B
-  glTexture2dArray* = 0x00008C1A
-  glTextureBinding2dArray* = 0x00008C1D
-  glR11fG11fB10f* = 0x00008C3A
-  glUnsignedInt10f11f11fRev* = 0x00008C3B
-  glRgb9E5* = 0x00008C3D
-  glUnsignedInt5999Rev* = 0x00008C3E
-  glTransformFeedbackVaryingMaxLength* = 0x00008C76
-  glTransformFeedbackBufferMode* = 0x00008C7F
-  glMaxTransformFeedbackSeparateComponents* = 0x00008C80
-  glTransformFeedbackVaryings* = 0x00008C83
-  glTransformFeedbackBufferStart* = 0x00008C84
-  glTransformFeedbackBufferSize* = 0x00008C85
-  glTransformFeedbackPrimitivesWritten* = 0x00008C88
-  glRasterizerDiscard* = 0x00008C89
-  glMaxTransformFeedbackInterleavedComponents* = 0x00008C8A
-  glMaxTransformFeedbackSeparateAttribs* = 0x00008C8B
-  glInterleavedAttribs* = 0x00008C8C
-  glSeparateAttribs* = 0x00008C8D
-  glTransformFeedbackBuffer* = 0x00008C8E
-  glTransformFeedbackBufferBinding* = 0x00008C8F
-  glRgba32ui* = 0x00008D70
-  glRgb32ui* = 0x00008D71
-  glRgba16ui* = 0x00008D76
-  glRgb16ui* = 0x00008D77
-  glRgba8ui* = 0x00008D7C
-  glRgb8ui* = 0x00008D7D
-  glRgba32i* = 0x00008D82
-  glRgb32i* = 0x00008D83
-  glRgba16i* = 0x00008D88
-  glRgb16i* = 0x00008D89
-  glRgba8i* = 0x00008D8E
-  glRgb8i* = 0x00008D8F
-  glRedInteger* = 0x00008D94
-  glRgbInteger* = 0x00008D98
-  glRgbaInteger* = 0x00008D99
-  glSampler2dArray* = 0x00008DC1
-  glSampler2dArrayShadow* = 0x00008DC4
-  glSamplerCubeShadow* = 0x00008DC5
-  glUnsignedIntVec2* = 0x00008DC6
-  glUnsignedIntVec3* = 0x00008DC7
-  glUnsignedIntVec4* = 0x00008DC8
-  glIntSampler2d* = 0x00008DCA
-  glIntSampler3d* = 0x00008DCB
-  glIntSamplerCube* = 0x00008DCC
-  glIntSampler2dArray* = 0x00008DCF
-  glUnsignedIntSampler2d* = 0x00008DD2
-  glUnsignedIntSampler3d* = 0x00008DD3
-  glUnsignedIntSamplerCube* = 0x00008DD4
-  glUnsignedIntSampler2dArray* = 0x00008DD7
-  glBufferAccessFlags* = 0x0000911F
-  glBufferMapLength* = 0x00009120
-  glBufferMapOffset* = 0x00009121
-  glDepthComponent32f* = 0x00008CAC
-  glDepth32fStencil8* = 0x00008CAD
-  glFloat32UnsignedInt248Rev* = 0x00008DAD
-  glFramebufferAttachmentColorEncoding* = 0x00008210
-  glFramebufferAttachmentComponentType* = 0x00008211
-  glFramebufferAttachmentRedSize* = 0x00008212
-  glFramebufferAttachmentGreenSize* = 0x00008213
-  glFramebufferAttachmentBlueSize* = 0x00008214
-  glFramebufferAttachmentAlphaSize* = 0x00008215
-  glFramebufferAttachmentDepthSize* = 0x00008216
-  glFramebufferAttachmentStencilSize* = 0x00008217
-  glFramebufferDefault* = 0x00008218
-  glFramebufferUndefined* = 0x00008219
-  glDepthStencilAttachment* = 0x0000821A
-  glDepthStencil* = 0x000084F9
-  glUnsignedInt248* = 0x000084FA
-  glDepth24Stencil8* = 0x000088F0
-  glUnsignedNormalized* = 0x00008C17
-  glDrawFramebufferBinding* = 0x00008CA6
-  glReadFramebuffer* = 0x00008CA8
-  glDrawFramebuffer* = 0x00008CA9
-  glReadFramebufferBinding* = 0x00008CAA
-  glRenderbufferSamples* = 0x00008CAB
-  glFramebufferAttachmentTextureLayer* = 0x00008CD4
-  glMaxColorAttachments* = 0x00008CDF
-  glColorAttachment1* = 0x00008CE1
-  glColorAttachment2* = 0x00008CE2
-  glColorAttachment3* = 0x00008CE3
-  glColorAttachment4* = 0x00008CE4
-  glColorAttachment5* = 0x00008CE5
-  glColorAttachment6* = 0x00008CE6
-  glColorAttachment7* = 0x00008CE7
-  glColorAttachment8* = 0x00008CE8
-  glColorAttachment9* = 0x00008CE9
-  glColorAttachment10* = 0x00008CEA
-  glColorAttachment11* = 0x00008CEB
-  glColorAttachment12* = 0x00008CEC
-  glColorAttachment13* = 0x00008CED
-  glColorAttachment14* = 0x00008CEE
-  glColorAttachment15* = 0x00008CEF
-  glFramebufferIncompleteMultisample* = 0x00008D56
-  glMaxSamples* = 0x00008D57
-  glHalfFloat* = 0x0000140B
-  glMapReadBit* = 0x00000001
-  glMapWriteBit* = 0x00000002
-  glMapInvalidateRangeBit* = 0x00000004
-  glMapInvalidateBufferBit* = 0x00000008
-  glMapFlushExplicitBit* = 0x00000010
-  glMapUnsynchronizedBit* = 0x00000020
-  glRg* = 0x00008227
-  glRgInteger* = 0x00008228
-  glR8* = 0x00008229
-  glRg8* = 0x0000822B
-  glR16f* = 0x0000822D
-  glR32f* = 0x0000822E
-  glRg16f* = 0x0000822F
-  glRg32f* = 0x00008230
-  glR8i* = 0x00008231
-  glR8ui* = 0x00008232
-  glR16i* = 0x00008233
-  glR16ui* = 0x00008234
-  glR32i* = 0x00008235
-  glR32ui* = 0x00008236
-  glRg8i* = 0x00008237
-  glRg8ui* = 0x00008238
-  glRg16i* = 0x00008239
-  glRg16ui* = 0x0000823A
-  glRg32i* = 0x0000823B
-  glRg32ui* = 0x0000823C
-  glVertexArrayBinding* = 0x000085B5
-  glR8Snorm* = 0x00008F94
-  glRg8Snorm* = 0x00008F95
-  glRgb8Snorm* = 0x00008F96
-  glRgba8Snorm* = 0x00008F97
-  glSignedNormalized* = 0x00008F9C
-  glPrimitiveRestartFixedIndex* = 0x00008D69
-  glCopyReadBuffer* = 0x00008F36
-  glCopyWriteBuffer* = 0x00008F37
-  glCopyReadBufferBinding* = 0x00008F36
-  glCopyWriteBufferBinding* = 0x00008F37
-  glUniformBuffer* = 0x00008A11
-  glUniformBufferBinding* = 0x00008A28
-  glUniformBufferStart* = 0x00008A29
-  glUniformBufferSize* = 0x00008A2A
-  glMaxVertexUniformBlocks* = 0x00008A2B
-  glMaxFragmentUniformBlocks* = 0x00008A2D
-  glMaxCombinedUniformBlocks* = 0x00008A2E
-  glMaxUniformBufferBindings* = 0x00008A2F
-  glMaxUniformBlockSize* = 0x00008A30
-  glMaxCombinedVertexUniformComponents* = 0x00008A31
-  glMaxCombinedFragmentUniformComponents* = 0x00008A33
-  glUniformBufferOffsetAlignment* = 0x00008A34
-  glActiveUniformBlockMaxNameLength* = 0x00008A35
-  glActiveUniformBlocks* = 0x00008A36
-  glUniformType* = 0x00008A37
-  glUniformSize* = 0x00008A38
-  glUniformNameLength* = 0x00008A39
-  glUniformBlockIndex* = 0x00008A3A
-  glUniformOffset* = 0x00008A3B
-  glUniformArrayStride* = 0x00008A3C
-  glUniformMatrixStride* = 0x00008A3D
-  glUniformIsRowMajor* = 0x00008A3E
-  glUniformBlockBinding* = 0x00008A3F
-  glUniformBlockDataSize* = 0x00008A40
-  glUniformBlockNameLength* = 0x00008A41
-  glUniformBlockActiveUniforms* = 0x00008A42
-  glUniformBlockActiveUniformIndices* = 0x00008A43
-  glUniformBlockReferencedByVertexShader* = 0x00008A44
-  glUniformBlockReferencedByFragmentShader* = 0x00008A46
-  glInvalidIndex* = 0xFFFFFFFF
-  glMaxVertexOutputComponents* = 0x00009122
-  glMaxFragmentInputComponents* = 0x00009125
-  glMaxServerWaitTimeout* = 0x00009111
-  glObjectType* = 0x00009112
-  glSyncCondition* = 0x00009113
-  glSyncStatus* = 0x00009114
-  glSyncFlags* = 0x00009115
-  glSyncFence* = 0x00009116
-  glSyncGpuCommandsComplete* = 0x00009117
-  glUnsignaled* = 0x00009118
-  glSignaled* = 0x00009119
-  glAlreadySignaled* = 0x0000911A
-  glTimeoutExpired* = 0x0000911B
-  glConditionSatisfied* = 0x0000911C
-  glWaitFailed* = 0x0000911D
-  glSyncFlushCommandsBit* = 0x00000001
-  glTimeoutIgnored* = 0xFFFFFFFFFFFFFFFF'i64
-  glVertexAttribArrayDivisor* = 0x000088FE
-  glAnySamplesPassed* = 0x00008C2F
-  glAnySamplesPassedConservative* = 0x00008D6A
-  glSamplerBinding* = 0x00008919
-  glRgb10A2ui* = 0x0000906F
-  glTextureSwizzleR* = 0x00008E42
-  glTextureSwizzleG* = 0x00008E43
-  glTextureSwizzleB* = 0x00008E44
-  glTextureSwizzleA* = 0x00008E45
-  glGreen* = 0x00001904
-  glBlue* = 0x00001905
-  glInt2101010Rev* = 0x00008D9F
-  glTransformFeedback* = 0x00008E22
-  glTransformFeedbackPaused* = 0x00008E23
-  glTransformFeedbackActive* = 0x00008E24
-  glTransformFeedbackBinding* = 0x00008E25
-  glProgramBinaryRetrievableHint* = 0x00008257
-  glProgramBinaryLength* = 0x00008741
-  glNumProgramBinaryFormats* = 0x000087FE
-  glProgramBinaryFormats* = 0x000087FF
-  glCompressedR11Eac* = 0x00009270
-  glCompressedSignedR11Eac* = 0x00009271
-  glCompressedRg11Eac* = 0x00009272
-  glCompressedSignedRg11Eac* = 0x00009273
-  glCompressedRgb8Etc2* = 0x00009274
-  glCompressedSrgb8Etc2* = 0x00009275
-  glCompressedRgb8PunchthroughAlpha1Etc2* = 0x00009276
-  glCompressedSrgb8PunchthroughAlpha1Etc2* = 0x00009277
-  glCompressedRgba8Etc2Eac* = 0x00009278
-  glCompressedSrgb8Alpha8Etc2Eac* = 0x00009279
-  glTextureImmutableFormat* = 0x0000912F
-  glMaxElementIndex* = 0x00008D6B
-  glNumSampleCounts* = 0x00009380
-  glTextureImmutableLevels* = 0x000082DF
+  GL_READ_BUFFER* = 0x00000C02
+  GL_UNPACK_ROW_LENGTH* = 0x00000CF2
+  GL_UNPACK_SKIP_ROWS* = 0x00000CF3
+  GL_UNPACK_SKIP_PIXELS* = 0x00000CF4
+  GL_PACK_ROW_LENGTH* = 0x00000D02
+  GL_PACK_SKIP_ROWS* = 0x00000D03
+  GL_PACK_SKIP_PIXELS* = 0x00000D04
+  GL_COLOR* = 0x00001800
+  GL_DEPTH* = 0x00001801
+  GL_STENCIL* = 0x00001802
+  GL_RED* = 0x00001903
+  GL_RGB8* = 0x00008051
+  GL_RGBA8* = 0x00008058
+  GL_RGB10_A2* = 0x00008059
+  GL_TEXTURE_BINDING_3D* = 0x0000806A
+  GL_UNPACK_SKIP_IMAGES* = 0x0000806D
+  GL_UNPACK_IMAGE_HEIGHT* = 0x0000806E
+  GL_TEXTURE_3D* = 0x0000806F
+  GL_TEXTURE_WRAP_R* = 0x00008072
+  GL_MAX_3D_TEXTURE_SIZE* = 0x00008073
+  GL_UNSIGNED_INT_2_10_10_10_REV* = 0x00008368
+  GL_MAX_ELEMENTS_VERTICES* = 0x000080E8
+  GL_MAX_ELEMENTS_INDICES* = 0x000080E9
+  GL_TEXTURE_MIN_LOD* = 0x0000813A
+  GL_TEXTURE_MAX_LOD* = 0x0000813B
+  GL_TEXTURE_BASE_LEVEL* = 0x0000813C
+  GL_TEXTURE_MAX_LEVEL* = 0x0000813D
+  GL_MIN* = 0x00008007
+  GL_MAX* = 0x00008008
+  GL_DEPTH_COMPONENT24* = 0x000081A6
+  GL_MAX_TEXTURE_LOD_BIAS* = 0x000084FD
+  GL_TEXTURE_COMPARE_MODE* = 0x0000884C
+  GL_TEXTURE_COMPARE_FUNC* = 0x0000884D
+  GL_CURRENT_QUERY* = 0x00008865
+  GL_QUERY_RESULT* = 0x00008866
+  GL_QUERY_RESULT_AVAILABLE* = 0x00008867
+  GL_BUFFER_MAPPED* = 0x000088BC
+  GL_BUFFER_MAP_POINTER* = 0x000088BD
+  GL_STREAM_READ* = 0x000088E1
+  GL_STREAM_COPY* = 0x000088E2
+  GL_STATIC_READ* = 0x000088E5
+  GL_STATIC_COPY* = 0x000088E6
+  GL_DYNAMIC_READ* = 0x000088E9
+  GL_DYNAMIC_COPY* = 0x000088EA
+  GL_MAX_DRAW_BUFFERS* = 0x00008824
+  GL_DRAW_BUFFER0* = 0x00008825
+  GL_DRAW_BUFFER1* = 0x00008826
+  GL_DRAW_BUFFER2* = 0x00008827
+  GL_DRAW_BUFFER3* = 0x00008828
+  GL_DRAW_BUFFER4* = 0x00008829
+  GL_DRAW_BUFFER5* = 0x0000882A
+  GL_DRAW_BUFFER6* = 0x0000882B
+  GL_DRAW_BUFFER7* = 0x0000882C
+  GL_DRAW_BUFFER8* = 0x0000882D
+  GL_DRAW_BUFFER9* = 0x0000882E
+  GL_DRAW_BUFFER10* = 0x0000882F
+  GL_DRAW_BUFFER11* = 0x00008830
+  GL_DRAW_BUFFER12* = 0x00008831
+  GL_DRAW_BUFFER13* = 0x00008832
+  GL_DRAW_BUFFER14* = 0x00008833
+  GL_DRAW_BUFFER15* = 0x00008834
+  GL_MAX_FRAGMENT_UNIFORM_COMPONENTS* = 0x00008B49
+  GL_MAX_VERTEX_UNIFORM_COMPONENTS* = 0x00008B4A
+  GL_SAMPLER_3D* = 0x00008B5F
+  GL_SAMPLER_2D_SHADOW* = 0x00008B62
+  GL_FRAGMENT_SHADER_DERIVATIVE_HINT* = 0x00008B8B
+  GL_PIXEL_PACK_BUFFER* = 0x000088EB
+  GL_PIXEL_UNPACK_BUFFER* = 0x000088EC
+  GL_PIXEL_PACK_BUFFER_BINDING* = 0x000088ED
+  GL_PIXEL_UNPACK_BUFFER_BINDING* = 0x000088EF
+  cGL_FLOAT_MAT2x3* = 0x00008B65
+  cGL_FLOAT_MAT2x4* = 0x00008B66
+  cGL_FLOAT_MAT3x2* = 0x00008B67
+  cGL_FLOAT_MAT3x4* = 0x00008B68
+  cGL_FLOAT_MAT4x2* = 0x00008B69
+  cGL_FLOAT_MAT4x3* = 0x00008B6A
+  GL_SRGB* = 0x00008C40
+  GL_SRGB8* = 0x00008C41
+  GL_SRGB8_ALPHA8* = 0x00008C43
+  GL_COMPARE_REF_TO_TEXTURE* = 0x0000884E
+  GL_MAJOR_VERSION* = 0x0000821B
+  GL_MINOR_VERSION* = 0x0000821C
+  GL_NUM_EXTENSIONS* = 0x0000821D
+  GL_RGBA32F* = 0x00008814
+  GL_RGB32F* = 0x00008815
+  GL_RGBA16F* = 0x0000881A
+  GL_RGB16F* = 0x0000881B
+  GL_VERTEX_ATTRIB_ARRAY_INTEGER* = 0x000088FD
+  GL_MAX_ARRAY_TEXTURE_LAYERS* = 0x000088FF
+  GL_MIN_PROGRAM_TEXEL_OFFSET* = 0x00008904
+  GL_MAX_PROGRAM_TEXEL_OFFSET* = 0x00008905
+  GL_MAX_VARYING_COMPONENTS* = 0x00008B4B
+  GL_TEXTURE_2D_ARRAY* = 0x00008C1A
+  GL_TEXTURE_BINDING_2D_ARRAY* = 0x00008C1D
+  GL_R11F_G11F_B10F* = 0x00008C3A
+  GL_UNSIGNED_INT_10F_11F_11F_REV* = 0x00008C3B
+  GL_RGB9_E5* = 0x00008C3D
+  GL_UNSIGNED_INT_5_9_9_9_REV* = 0x00008C3E
+  GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH* = 0x00008C76
+  GL_TRANSFORM_FEEDBACK_BUFFER_MODE* = 0x00008C7F
+  GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS* = 0x00008C80
+  GL_TRANSFORM_FEEDBACK_VARYINGS* = 0x00008C83
+  GL_TRANSFORM_FEEDBACK_BUFFER_START* = 0x00008C84
+  GL_TRANSFORM_FEEDBACK_BUFFER_SIZE* = 0x00008C85
+  GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN* = 0x00008C88
+  GL_RASTERIZER_DISCARD* = 0x00008C89
+  GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS* = 0x00008C8A
+  GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS* = 0x00008C8B
+  cGL_INTERLEAVED_ATTRIBS* = 0x00008C8C
+  GL_SEPARATE_ATTRIBS* = 0x00008C8D
+  GL_TRANSFORM_FEEDBACK_BUFFER* = 0x00008C8E
+  GL_TRANSFORM_FEEDBACK_BUFFER_BINDING* = 0x00008C8F
+  GL_RGBA32UI* = 0x00008D70
+  GL_RGB32UI* = 0x00008D71
+  GL_RGBA16UI* = 0x00008D76
+  GL_RGB16UI* = 0x00008D77
+  GL_RGBA8UI* = 0x00008D7C
+  GL_RGB8UI* = 0x00008D7D
+  GL_RGBA32I* = 0x00008D82
+  GL_RGB32I* = 0x00008D83
+  GL_RGBA16I* = 0x00008D88
+  GL_RGB16I* = 0x00008D89
+  GL_RGBA8I* = 0x00008D8E
+  GL_RGB8I* = 0x00008D8F
+  GL_RED_INTEGER* = 0x00008D94
+  GL_RGB_INTEGER* = 0x00008D98
+  GL_RGBA_INTEGER* = 0x00008D99
+  GL_SAMPLER_2D_ARRAY* = 0x00008DC1
+  GL_SAMPLER_2D_ARRAY_SHADOW* = 0x00008DC4
+  GL_SAMPLER_CUBE_SHADOW* = 0x00008DC5
+  GL_UNSIGNED_INT_VEC2* = 0x00008DC6
+  GL_UNSIGNED_INT_VEC3* = 0x00008DC7
+  GL_UNSIGNED_INT_VEC4* = 0x00008DC8
+  cGL_INT_SAMPLER_2D* = 0x00008DCA
+  cGL_INT_SAMPLER_3D* = 0x00008DCB
+  cGL_INT_SAMPLER_CUBE* = 0x00008DCC
+  cGL_INT_SAMPLER_2D_ARRAY* = 0x00008DCF
+  GL_UNSIGNED_INT_SAMPLER_2D* = 0x00008DD2
+  GL_UNSIGNED_INT_SAMPLER_3D* = 0x00008DD3
+  GL_UNSIGNED_INT_SAMPLER_CUBE* = 0x00008DD4
+  GL_UNSIGNED_INT_SAMPLER_2D_ARRAY* = 0x00008DD7
+  GL_BUFFER_ACCESS_FLAGS* = 0x0000911F
+  GL_BUFFER_MAP_LENGTH* = 0x00009120
+  GL_BUFFER_MAP_OFFSET* = 0x00009121
+  GL_DEPTH_COMPONENT32F* = 0x00008CAC
+  GL_DEPTH32F_STENCIL8* = 0x00008CAD
+  cGL_FLOAT_32_UNSIGNED_INT_24_8_REV* = 0x00008DAD
+  GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING* = 0x00008210
+  GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE* = 0x00008211
+  GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE* = 0x00008212
+  GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE* = 0x00008213
+  GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE* = 0x00008214
+  GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE* = 0x00008215
+  GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE* = 0x00008216
+  GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE* = 0x00008217
+  GL_FRAMEBUFFER_DEFAULT* = 0x00008218
+  GL_FRAMEBUFFER_UNDEFINED* = 0x00008219
+  GL_DEPTH_STENCIL_ATTACHMENT* = 0x0000821A
+  GL_DEPTH_STENCIL* = 0x000084F9
+  GL_UNSIGNED_INT_24_8* = 0x000084FA
+  GL_DEPTH24_STENCIL8* = 0x000088F0
+  GL_UNSIGNED_NORMALIZED* = 0x00008C17
+  GL_DRAW_FRAMEBUFFER_BINDING* = 0x00008CA6
+  GL_READ_FRAMEBUFFER* = 0x00008CA8
+  GL_DRAW_FRAMEBUFFER* = 0x00008CA9
+  GL_READ_FRAMEBUFFER_BINDING* = 0x00008CAA
+  GL_RENDERBUFFER_SAMPLES* = 0x00008CAB
+  GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER* = 0x00008CD4
+  GL_MAX_COLOR_ATTACHMENTS* = 0x00008CDF
+  GL_COLOR_ATTACHMENT1* = 0x00008CE1
+  GL_COLOR_ATTACHMENT2* = 0x00008CE2
+  GL_COLOR_ATTACHMENT3* = 0x00008CE3
+  GL_COLOR_ATTACHMENT4* = 0x00008CE4
+  GL_COLOR_ATTACHMENT5* = 0x00008CE5
+  GL_COLOR_ATTACHMENT6* = 0x00008CE6
+  GL_COLOR_ATTACHMENT7* = 0x00008CE7
+  GL_COLOR_ATTACHMENT8* = 0x00008CE8
+  GL_COLOR_ATTACHMENT9* = 0x00008CE9
+  GL_COLOR_ATTACHMENT10* = 0x00008CEA
+  GL_COLOR_ATTACHMENT11* = 0x00008CEB
+  GL_COLOR_ATTACHMENT12* = 0x00008CEC
+  GL_COLOR_ATTACHMENT13* = 0x00008CED
+  GL_COLOR_ATTACHMENT14* = 0x00008CEE
+  GL_COLOR_ATTACHMENT15* = 0x00008CEF
+  GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE* = 0x00008D56
+  GL_MAX_SAMPLES* = 0x00008D57
+  GL_HALF_FLOAT* = 0x0000140B
+  GL_MAP_READ_BIT* = 0x00000001
+  GL_MAP_WRITE_BIT* = 0x00000002
+  GL_MAP_INVALIDATE_RANGE_BIT* = 0x00000004
+  GL_MAP_INVALIDATE_BUFFER_BIT* = 0x00000008
+  GL_MAP_FLUSH_EXPLICIT_BIT* = 0x00000010
+  GL_MAP_UNSYNCHRONIZED_BIT* = 0x00000020
+  GL_RG* = 0x00008227
+  GL_RG_INTEGER* = 0x00008228
+  GL_R8* = 0x00008229
+  GL_RG8* = 0x0000822B
+  GL_R16F* = 0x0000822D
+  GL_R32F* = 0x0000822E
+  GL_RG16F* = 0x0000822F
+  GL_RG32F* = 0x00008230
+  GL_R8I* = 0x00008231
+  GL_R8UI* = 0x00008232
+  GL_R16I* = 0x00008233
+  GL_R16UI* = 0x00008234
+  GL_R32I* = 0x00008235
+  GL_R32UI* = 0x00008236
+  GL_RG8I* = 0x00008237
+  GL_RG8UI* = 0x00008238
+  GL_RG16I* = 0x00008239
+  GL_RG16UI* = 0x0000823A
+  GL_RG32I* = 0x0000823B
+  GL_RG32UI* = 0x0000823C
+  GL_VERTEX_ARRAY_BINDING* = 0x000085B5
+  GL_R8_SNORM* = 0x00008F94
+  GL_RG8_SNORM* = 0x00008F95
+  GL_RGB8_SNORM* = 0x00008F96
+  GL_RGBA8_SNORM* = 0x00008F97
+  GL_SIGNED_NORMALIZED* = 0x00008F9C
+  GL_PRIMITIVE_RESTART_FIXED_INDEX* = 0x00008D69
+  GL_COPY_READ_BUFFER* = 0x00008F36
+  GL_COPY_WRITE_BUFFER* = 0x00008F37
+  GL_COPY_READ_BUFFER_BINDING* = 0x00008F36
+  GL_COPY_WRITE_BUFFER_BINDING* = 0x00008F37
+  GL_UNIFORM_BUFFER* = 0x00008A11
+  GL_UNIFORM_BUFFER_BINDING* = 0x00008A28
+  GL_UNIFORM_BUFFER_START* = 0x00008A29
+  GL_UNIFORM_BUFFER_SIZE* = 0x00008A2A
+  GL_MAX_VERTEX_UNIFORM_BLOCKS* = 0x00008A2B
+  GL_MAX_FRAGMENT_UNIFORM_BLOCKS* = 0x00008A2D
+  GL_MAX_COMBINED_UNIFORM_BLOCKS* = 0x00008A2E
+  GL_MAX_UNIFORM_BUFFER_BINDINGS* = 0x00008A2F
+  GL_MAX_UNIFORM_BLOCK_SIZE* = 0x00008A30
+  GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS* = 0x00008A31
+  GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS* = 0x00008A33
+  GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT* = 0x00008A34
+  GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH* = 0x00008A35
+  GL_ACTIVE_UNIFORM_BLOCKS* = 0x00008A36
+  GL_UNIFORM_TYPE* = 0x00008A37
+  GL_UNIFORM_SIZE* = 0x00008A38
+  GL_UNIFORM_NAME_LENGTH* = 0x00008A39
+  GL_UNIFORM_BLOCK_INDEX* = 0x00008A3A
+  GL_UNIFORM_OFFSET* = 0x00008A3B
+  GL_UNIFORM_ARRAY_STRIDE* = 0x00008A3C
+  GL_UNIFORM_MATRIX_STRIDE* = 0x00008A3D
+  GL_UNIFORM_IS_ROW_MAJOR* = 0x00008A3E
+  GL_UNIFORM_BLOCK_BINDING* = 0x00008A3F
+  GL_UNIFORM_BLOCK_DATA_SIZE* = 0x00008A40
+  GL_UNIFORM_BLOCK_NAME_LENGTH* = 0x00008A41
+  GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS* = 0x00008A42
+  GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES* = 0x00008A43
+  GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER* = 0x00008A44
+  GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER* = 0x00008A46
+  GL_INVALID_INDEX* = 0xFFFFFFFF
+  GL_MAX_VERTEX_OUTPUT_COMPONENTS* = 0x00009122
+  GL_MAX_FRAGMENT_INPUT_COMPONENTS* = 0x00009125
+  GL_MAX_SERVER_WAIT_TIMEOUT* = 0x00009111
+  GL_OBJECT_TYPE* = 0x00009112
+  GL_SYNC_CONDITION* = 0x00009113
+  GL_SYNC_STATUS* = 0x00009114
+  GL_SYNC_FLAGS* = 0x00009115
+  GL_SYNC_FENCE* = 0x00009116
+  GL_SYNC_GPU_COMMANDS_COMPLETE* = 0x00009117
+  GL_UNSIGNALED* = 0x00009118
+  GL_SIGNALED* = 0x00009119
+  GL_ALREADY_SIGNALED* = 0x0000911A
+  GL_TIMEOUT_EXPIRED* = 0x0000911B
+  GL_CONDITION_SATISFIED* = 0x0000911C
+  GL_WAIT_FAILED* = 0x0000911D
+  GL_SYNC_FLUSH_COMMANDS_BIT* = 0x00000001
+  GL_TIMEOUT_IGNORED* = 0xFFFFFFFFFFFFFFFF'i64
+  GL_VERTEX_ATTRIB_ARRAY_DIVISOR* = 0x000088FE
+  GL_ANY_SAMPLES_PASSED* = 0x00008C2F
+  GL_ANY_SAMPLES_PASSED_CONSERVATIVE* = 0x00008D6A
+  GL_SAMPLER_BINDING* = 0x00008919
+  GL_RGB10_A2UI* = 0x0000906F
+  GL_TEXTURE_SWIZZLE_R* = 0x00008E42
+  GL_TEXTURE_SWIZZLE_G* = 0x00008E43
+  GL_TEXTURE_SWIZZLE_B* = 0x00008E44
+  GL_TEXTURE_SWIZZLE_A* = 0x00008E45
+  GL_GREEN* = 0x00001904
+  GL_BLUE* = 0x00001905
+  cGL_INT_2_10_10_10_REV* = 0x00008D9F
+  GL_TRANSFORM_FEEDBACK* = 0x00008E22
+  GL_TRANSFORM_FEEDBACK_PAUSED* = 0x00008E23
+  GL_TRANSFORM_FEEDBACK_ACTIVE* = 0x00008E24
+  GL_TRANSFORM_FEEDBACK_BINDING* = 0x00008E25
+  GL_PROGRAM_BINARY_RETRIEVABLE_HINT* = 0x00008257
+  GL_PROGRAM_BINARY_LENGTH* = 0x00008741
+  GL_NUM_PROGRAM_BINARY_FORMATS* = 0x000087FE
+  GL_PROGRAM_BINARY_FORMATS* = 0x000087FF
+  GL_COMPRESSED_R11_EAC* = 0x00009270
+  GL_COMPRESSED_SIGNED_R11_EAC* = 0x00009271
+  GL_COMPRESSED_RG11_EAC* = 0x00009272
+  GL_COMPRESSED_SIGNED_RG11_EAC* = 0x00009273
+  GL_COMPRESSED_RGB8_ETC2* = 0x00009274
+  GL_COMPRESSED_SRGB8_ETC2* = 0x00009275
+  GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2* = 0x00009276
+  GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2* = 0x00009277
+  GL_COMPRESSED_RGBA8_ETC2_EAC* = 0x00009278
+  GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC* = 0x00009279
+  GL_TEXTURE_IMMUTABLE_FORMAT* = 0x0000912F
+  GL_MAX_ELEMENT_INDEX* = 0x00008D6B
+  GL_NUM_SAMPLE_COUNTS* = 0x00009380
+  GL_TEXTURE_IMMUTABLE_LEVELS* = 0x000082DF
 
 
-proc glReadBuffer*(src: GLenum) {.importc.}
+proc glReadBuffer*(src: GlEnum) {.importc.}
   ## Select a color buffer source for pixels.
   ##
   ## src
-  ##   Specifies a color buffer. Accepted values are `glBack`, `glNone`, and
-  ##   `gLCOLORATTACHMENT`i.
+  ##   Specifies a color buffer. Accepted values are `GL_BACK`, `GL_NONE`, and
+  ##   `GL_COLOR_ATTACHMENT`i.
 
 
-proc glDrawRangeElements*(mode: GLenum; start: GLuint; `end`: GLuint;
-  count: GLsizei; `type`: GLenum; indices: pointer)  {.importc.}
+proc glDrawRangeElements*(mode: GlEnum; start: GlUint; `end`: GlUint;
+  count: GlSizei; indexType: GlEnum; indices: pointer)  {.importc.}
   ## Render primitives from array data.
   ##
   ## mode
   ##   Specifies what kind of primitives to render. Symbolic constants
-  ##   `glPoints`, `glLineStrip`, `glLineLoop`, `glLines`, `glTriangleStrip`,
-  ##   `glTriangleFan` and `glTriangles` are accepted.
+  ##   `GL_POINTS`, `GL_LINE_STRIP`, `GL_LINE_LOOP`, `GL_LINES`,
+  ##   `GL_TRIANGLE_STRIP`, `GL_TRIANGLE_FAN` and `GL_TRIANGLES` are accepted.
   ## start
   ##   Specifies the minimum array index contained in indices.
   ## end
   ##   Specifies the maximum array index contained in indices.
   ## count
   ##   Specifies the number of elements to be rendered.
-  ## type
+  ## indexType
   ##   Specifies the type of the values in indices. Must be one of
-  ##   `glUnsignedByte`, `glUnsignedShort`, or `glUnsignedInt`.
+  ##   `GL_UNSIGNED_BYTE`, `GL_UNSIGNED_SHORT`, or `GL_UNSIGNED_INT`.
   ## indices
   ##   Specifies a byte offset (cast to a pointer type) into the buffer bound to
-  ##   `glElementArrayBuffer` to start reading indices from. If no buffer is
+  ##   `GL_ELEMENT_ARRAY_BUFFER` to start reading indices from. If no buffer is
   ##   bound, specifies a pointer to the location where the indices are stored.
 
 
-proc glTexImage3D*(target: GLenum; level: GLint; internalformat: GLint;
-  width: GLsizei; height: GLsizei; depth: GLsizei; border: GLint;
-  format: GLenum; `type`: GLenum; pixels: pointer) {.importc.}
+proc glTexImage3D*(target: GlEnum; level: GlInt; internalformat: GlInt;
+  width: GlSizei; height: GlSizei; depth: GlSizei; border: GlInt;
+  format: GlEnum; pixelType: GlEnum; pixels: pointer) {.importc.}
   ## Specify a three-dimensional texture image.
   ##
   ## target
-  ##   Specifies the target texture. Must be one of `glTexture3d` or
-  ##   `glTexture2dArray`.
+  ##   Specifies the target texture. Must be one of `GL_TEXTURE3D` or
+  ##   `GL_TEXTURE_2D_ARRAY`.
   ## level
   ##   Specifies the level-of-detail number. Level 0 is the base image level.
   ##   Level n is the `n`th mipmap reduction image.
@@ -383,27 +383,30 @@ proc glTexImage3D*(target: GLenum; level: GLint; internalformat: GLint;
   ##   This value must be `0`.
   ## format
   ##   Specifies the format of the pixel data. The following symbolic values are
-  ##   accepted: `glRed`, `glRedInteger`, `GL_RG`, `glRgInteger`, `glRgb`,
-  ##   `glRgbInteger`, `glRgba`, `glRgbaInteger`, `glDepthComponent`,
-  ##   `glDepthStencil`, `glLuminanceAlpha`, `glLuminance`, and `glAlpha`,
-  ## type
+  ##   accepted: `GL_RED`, `GL_RED_INTEGER`, `GL_RG`, `GL_RG_INTEGER`, `GL_RGB`,
+  ##   `GL_RGB_INTEGER`, `GL_RGBA`, `GL_RGBA_INTEGER`, `GL_DEPTH_COMPONENT`,
+  ##   `GL_DEPTH_STENCIL`, `GL_LUMINANCE_ALPHA`, `GL_LUMINANCE`, and `GL_ALPHA`.
+  ## pixelType
   ##   Specifies the data type of the pixel data. The following symbolic values
-  ##   are accepted: `glUnsignedByte`, `glByte`, `glUnsignedShort`, `glShort`,
-  ##   `glUnsignedInt`, `glInt`, `glHalfFloat`, `glFloat`, `glUnsignedShort565`,
-  ##   `glUnsignedShort4444`, `glUnsignedShort5551`, `glUnsignedInt2101010Rev`,
-  ##   `glUnsignedInt10f11f11fRev`, `glUnsignedInt5999Rev`, `glUnsignedInt248`,
-  ##   and `glFloat32UnsignedInt248Rev`.
+  ##   are accepted: `GL_UNSIGNED_BYTE`, `cGL_BYTE`, `GL_UNSIGNED_SHORT`,
+  ##   `cGL_SHORT`, `GL_UNSIGNED_INT`, `cGL_INT`, `GL_HALF_FLOAT`, `cGL_FLOAT`,
+  ##   `GL_UNSIGNED_SHORT_5_6_5`, `GL_UNSIGNED_SHORT_4_4_4_4`,
+  ##   `GL_UNSIGNED_SHORT_5_5_5_1`, `GL_UNSIGNED_INT_2_10_10_10_REV`,
+  ##   `GL_UNSIGNED_INT_10F_11F_11F_REV`, `GL_UNSIGNED_INT_5_9_9_9_REV`,
+  ##   `GL_UNSIGNED_INT_24_8` and `cGL_FLOAT_32_UNSIGNED_INT_24_8_REV`.
   ## data
   ##   Specifies a pointer to the image data in memory.
 
 
-proc glTexSubImage3D*(target: GLenum; level: GLint; xoffset: GLint;
-  yoffset: GLint; zoffset: GLint; width: GLsizei; height: GLsizei;
-  depth: GLsizei; format: GLenum; `type`: GLenum; pixels: pointer) {.importc.}
+proc glTexSubImage3D*(target: GlEnum; level: GlInt; xoffset: GlInt;
+  yoffset: GlInt; zoffset: GlInt; width: GlSizei; height: GlSizei;
+  depth: GlSizei; format: GlEnum; pixelType: GlEnum; pixels: pointer)
+  {.importc.}
   ## Specify a three-dimensional texture subimage.
   ##
   ## target
-  ##   Specifies the target texture. Must be `glTexture3d` or `glTexture2dArray`.
+  ##   Specifies the target texture. Must be `GL_TEXTURE3D` or
+  ##   `GL_TEXTURE_2D_ARRAY`.
   ## level
   ##   Specifies the level-of-detail number. Level 0 is the base image level.
   ##   Level n is the `n`th mipmap reduction image.
@@ -421,26 +424,28 @@ proc glTexSubImage3D*(target: GLenum; level: GLint; xoffset: GLint;
   ##   Specifies the depth of the texture subimage.
   ## format
   ##   Specifies the format of the pixel data. The following symbolic values are
-  ##   accepted: `glRed`, `glRedInteger`, `glRg`, `glRgInteger`, `glRgb`,
-  ##   `glRgbInteger`, `glRgba`, `glRgbaInteger`, `glDepthComponent`,
-  ##   `glDepthStencil`, `glLuminanceAlpha`, `glLuminance`, and `glAlpha`.
-  ## type
+  ##   accepted: `GL_RED`, `GL_RED_INTEGER`, `GL_RG`, `GL_RG_INTEGER`, `GL_RGB`,
+  ##   `GL_RGB_INTEGER`, `GL_RGBA`, `GL_RGBA_INTEGER`, `GL_DEPTH_COMPONENT`,
+  ##   `GL_DEPTH_STENCIL`, `GL_LUMINANCE_ALPHA`, `GL_LUMINANCE`, and `GL_ALPHA`.
+  ## pixelType
   ##   Specifies the data type of the pixel data. The following symbolic values
-  ##   are accepted: `glUnsignedByte`, `glByte`, `glUnsignedShort`, `glShort`,
-  ##   `glUnsignedInt`, `glInt`, `glHalfFloat`, `glFloat`, `glUnsignedShort565`,
-  ##   `glUnsignedShort4444`, `glUnsignedShort5551`, `glUnsignedInt2101010Rev`,
-  ##   `glUnsignedInt10f11f11fRev`, `glUnsignedInt5999Rev`, `glUnsignedInt248`,
-  ##   and `glFloat32UnsignedInt248Rev`.
+  ##   are accepted: `GL_UNSIGNED_BYTE`, `cGL_BYTE`, `GL_UNSIGNED_SHORT`,
+  ##   `cGL_SHORT`, `GL_UNSIGNED_INT`, `cGL_INT`, `GL_HALF_FLOAT`, `cGL_FLOAT`,
+  ##   `GL_UNSIGNED_SHORT_5_6_5`, `GL_UNSIGNED_SHORT_4_4_4_4`,
+  ##   `GL_UNSIGNED_SHORT_5_5_5_1`, `GL_UNSIGNED_INT_2_10_10_10_REV`,
+  ##   `GL_UNSIGNED_INT_10F_11F_11F_REV`, `GL_UNSIGNED_INT_5_9_9_9_REV`,
+  ##   `GL_UNSIGNED_INT_24_8`, and `cGL_FLOAT_32_UNSIGNED_INT_24_8_REV`.
   ## data
   ##   Specifies a pointer to the image data in memory.
 
-proc glCopyTexSubImage3D*(target: GLenum; level: GLint; xoffset: GLint;
-  yoffset: GLint; zoffset: GLint; x: GLint; y: GLint; width: GLsizei;
-  height: GLsizei) {.importc.}
+proc glCopyTexSubImage3D*(target: GlEnum; level: GlInt; xoffset: GlInt;
+  yoffset: GlInt; zoffset: GlInt; x: GlInt; y: GlInt; width: GlSizei;
+  height: GlSizei) {.importc.}
   ## Copy a three-dimensional texture subimage.
   ##
   ## target
-  ##   Specifies the target texture. Must be `glTexture3d` or `glTexture2dArray`.
+  ##   Specifies the target texture. Must be `GL_TEXTURE3D` or
+  ##   `GL_TEXTURE_2D_ARRAY`.
   ## level
   ##   Specifies the level-of-detail number. Level 0 is the base image level.
   ##   Level n is the nth mipmap reduction image.
@@ -459,13 +464,14 @@ proc glCopyTexSubImage3D*(target: GLenum; level: GLint; xoffset: GLint;
   ##   Specifies the height of the texture subimage.
 
 
-proc glCompressedTexImage3D*(target: GLenum; level: GLint;
-  internalformat: GLenum; width: GLsizei; height: GLsizei; depth: GLsizei;
-  border: GLint; imageSize: GLsizei; data: pointer) {.importc.}
+proc glCompressedTexImage3D*(target: GlEnum; level: GlInt;
+  internalformat: GlEnum; width: GlSizei; height: GlSizei; depth: GlSizei;
+  border: GlInt; imageSize: GlSizei; data: pointer) {.importc.}
   ## Specify a three-dimensional texture image in a compressed format.
   ##
   ## target
-  ##   Specifies the target texture. Must be `glTexture3d` or `glTexture2dArray`.
+  ##   Specifies the target texture. Must be `GL_TEXTURE3D` or
+  ##   `GL_TEXTURE_2D_ARRAY`.
   ## level
   ##   Specifies the level-of-detail number. Level 0 is the base image level.
   ##   Level n is the `n`th mipmap reduction image.
@@ -486,13 +492,14 @@ proc glCompressedTexImage3D*(target: GLenum; level: GLint;
   ##   Specifies a pointer to the compressed image data in memory.
 
 
-proc glCompressedTexSubImage3D*(target: GLenum; level: GLint; xoffset: GLint;
-  yoffset: GLint; zoffset: GLint; width: GLsizei; height: GLsizei;
-  depth: GLsizei; format: GLenum; imageSize: GLsizei; data: pointer) {.importc.}
+proc glCompressedTexSubImage3D*(target: GlEnum; level: GlInt; xoffset: GlInt;
+  yoffset: GlInt; zoffset: GlInt; width: GlSizei; height: GlSizei;
+  depth: GlSizei; format: GlEnum; imageSize: GlSizei; data: pointer) {.importc.}
   ## Specify a three-dimensional texture subimage in a compressed format.
   ##
   ## target
-  ##   Specifies the target texture. Must be `glTexture3d` or `glTexture2dArray`.
+  ##   Specifies the target texture. Must be `GL_TEXTURE3D` or
+  ##   `GL_TEXTURE_2D_ARRAY`.
   ## level
   ##   Specifies the level-of-detail number. Level 0 is the base image level.
   ##   Level n is the `n`th mipmap reduction image.
@@ -517,7 +524,7 @@ proc glCompressedTexSubImage3D*(target: GLenum; level: GLint; xoffset: GLint;
   ##   Specifies a pointer to the compressed image data in memory.
 
 
-proc glGenQueries*(n: GLsizei; ids: ptr GLuint) {.importc.}
+proc glGenQueries*(n: GlSizei; ids: ptr GlUint) {.importc.}
   ## Generate query object names.
   ##
   ## n
@@ -526,7 +533,7 @@ proc glGenQueries*(n: GLsizei; ids: ptr GLuint) {.importc.}
   ##   Specifies an array in which the generated query object names are stored.
 
 
-proc glDeleteQueries*(n: GLsizei; ids: ptr GLuint) {.importc.}
+proc glDeleteQueries*(n: GlSizei; ids: ptr GlUint) {.importc.}
   ## Delete named query objects.
   ##
   ## n
@@ -535,54 +542,54 @@ proc glDeleteQueries*(n: GLsizei; ids: ptr GLuint) {.importc.}
   ##   Specifies an array of query objects to be deleted.
 
 
-proc glIsQuery*(id: GLuint): GLboolean {.importc.}
+proc glIsQuery*(id: GlUint): GlBoolean {.importc.}
   ## Determine if a name corresponds to a query object.
   ##
   ## id
   ##   Specifies a value that may be the name of a query object.
 
 
-proc glBeginQuery*(target: GLenum; id: GLuint) {.importc.}
+proc glBeginQuery*(target: GlEnum; id: GlUint) {.importc.}
   ## Delimit the boundaries of a query object.
   ##
   ## target
   ##   Specifies the target type of query object established between
   ##   `glBeginQuery <#glBeginQuery>`_ and the subsequent
   ##   `glEndQuery <#glEndQuery>`_. The symbolic constant must be one of
-  ##   `glAnySamplesPassed`, `glAnySamplesPassedConservative`, or
-  ##   `glTransformFeedbackPrimitivesWritten`.
+  ##   `GL_ANY_SAMPLES_PASSED`, `GL_ANY_SAMPLES_PASSED_CONSERVATIVE`, or
+  ##   `GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN`.
   ## id
   ##   Specifies the name of a query object.
 
 
-proc glEndQuery*(target: GLenum) {.importc.}
+proc glEndQuery*(target: GlEnum) {.importc.}
   ## Delimit the boundaries of a query object.
   ##
   ## target
   ##   Specifies the target type of query object established between
   ##   `glBeginQuery <#glBeginQuery>`_ and the subsequent
   ##   `glEndQuery <#glEndQuery>`_. The symbolic constant must be one of
-  ##   `glAnySamplesPassed`, `glAnySamplesPassedConservative`, or
-  ##   `glTransformFeedbackPrimitivesWritten`.
+  ##   `GL_ANY_SAMPLES_PASSED`, `GL_ANY_SAMPLES_PASSED_CONSERVATIVE`, or
+  ##   `GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN`.
   ## id
   ##   Specifies the name of a query object.
 
 
-proc glGetQueryiv*(target: GLenum; pname: GLenum; params: ptr GLint) {.importc.}
+proc glGetQueryiv*(target: GlEnum; pname: GlEnum; params: ptr GlInt) {.importc.}
   ## Return parameters of a query object target.
   ##
   ## target
-  ##   Specifies a query object target. Must be `glAnySamplesPassed`,
-  ##   `glAnySamplesPassedConservative` or
-  ##   `glTransformFeedbackPrimitivesWritten`.
+  ##   Specifies a query object target. Must be `GL_ANY_SAMPLES_PASSED`,
+  ##   `GL_ANY_SAMPLES_PASSED_CONSERVATIVE` or
+  ##   `GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN`.
   ## pname
   ##   Specifies the symbolic name of a query object target parameter. Must be
-  ##   `glCurrentQuery`.
+  ##   `GL_CURRENT_QUERY`.
   ## params
   ##   Returns the requested data.
 
 
-proc glGetQueryObjectuiv*(id: GLuint; pname: GLenum; params: ptr GLuint)
+proc glGetQueryObjectuiv*(id: GlUint; pname: GlEnum; params: ptr GlUint)
   {.importc.}
   ## Return parameters of a query object.
   ##
@@ -590,35 +597,36 @@ proc glGetQueryObjectuiv*(id: GLuint; pname: GLenum; params: ptr GLuint)
   ##   Specifies the name of a query object.
   ## pname
   ##   Specifies the symbolic name of a query object parameter. Accepted values
-  ##   are `glQueryResult` or `glQueryResultAvailable`.
+  ##   are `GL_QUERY_RESULT` or `GL_QUERY_RESULT_AVAILABLE`.
   ## params
   ##   Returns the requested data.
 
 
-proc glUnmapBuffer*(target: GLenum): GLboolean {.importc.}
+proc glUnmapBuffer*(target: GlEnum): GlBoolean {.importc.}
   ## Unmap a buffer object's data store.
   ##
   ## target
   ##   Specifies a binding to which the target buffer is bound.
 
 
-proc glGetBufferPointerv*(target: GLenum; pname: GLenum; params: ptr pointer)
+proc glGetBufferPointerv*(target: GlEnum; pname: GlEnum; params: ptr pointer)
   {.importc.}
   ## Return the pointer to a mapped buffer object's data store.
   ##
   ## target
   ##   Specifies the target buffer object. The symbolic constant must be
-  ##   `glArrayBuffer`, `glCopyReadBuffer`, `glCopyWriteBuffer`,
-  ##   `glElementArrayBuffer`, `glPixelPackBuffer`, `glPixelUnpackBuffer`,
-  ##   `glTransformFeedbackBuffer`, or `glUniformBuffer`.
+  ##   `GL_ARRAY_BUFFER`, `GL_COPY_READ_BUFFER`, `GL_COPY_WRITE_BUFFER`,
+  ##   `GL_ELEMENT_ARRAY_BUFFER`, `GL_PIXEL_PACK_BUFFER`,
+  ##   `GL_PIXEL_UNPACK_BUFFER`, `GL_TRANSFORM_FEEDBACK_BUFFER`, or
+  ##   `GL_UNIFORM_BUFFER`.
   ## pname
   ##   Specifies the pointer to be returned. The symbolic constant must be
-  ##   `glBufferMapPointer`.
+  ##   `GL_BUFFER_MAP_POINTER`.
   ## params
   ##   Returns the pointer value specified by pname.
 
 
-proc glDrawBuffers*(n: GLsizei; bufs: ptr GLenum) {.importc.}
+proc glDrawBuffers*(n: GlSizei; bufs: ptr GlEnum) {.importc.}
   ## Specifies a list of color buffers to be drawn into.
   ##
   ## n
@@ -628,8 +636,8 @@ proc glDrawBuffers*(n: GLsizei; bufs: ptr GLenum) {.importc.}
   ##   which fragment colors or data values will be written.
 
 
-proc glUniformMatrix2x3fv*(location: GLint; count: GLsizei;
-  transpose: GLboolean; value: ptr GLfloat) {.importc.}
+proc glUniformMatrix2x3fv*(location: GlInt; count: GlSizei;
+  transpose: GlBoolean; value: ptr GlFloat) {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
   ## location
@@ -640,8 +648,8 @@ proc glUniformMatrix2x3fv*(location: GLint; count: GLsizei;
   ##   variable is not an array, and `1` or more if it is an array. For the
   ##   matrix (`glUniformMatrix*`) commands, specifies the number of matrices
   ##   that are to be modified. This should be `1` if the targeted uniform
-  ##   variable is not an array of matrices, and `1` or more if it is an array of
-  ##   matrices.
+  ##   variable is not an array of matrices, and `1` or more if it is an array
+  ##   of matrices.
   ## transpose
   ##   For the matrix commands, specifies whether to transpose the matrix as the
   ##   values are loaded into the uniform variable.
@@ -653,8 +661,8 @@ proc glUniformMatrix2x3fv*(location: GLint; count: GLsizei;
   ##   `count` values that will be used to update the specified uniform variable.
 
 
-proc glUniformMatrix3x2fv*(location: GLint; count: GLsizei;
-  transpose: GLboolean; value: ptr GLfloat) {.importc.}
+proc glUniformMatrix3x2fv*(location: GlInt; count: GlSizei;
+  transpose: GlBoolean; value: ptr GlFloat) {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
   ## location
@@ -665,8 +673,8 @@ proc glUniformMatrix3x2fv*(location: GLint; count: GLsizei;
   ##   variable is not an array, and `1` or more if it is an array. For the
   ##   matrix (`glUniformMatrix*`) commands, specifies the number of matrices
   ##   that are to be modified. This should be `1` if the targeted uniform
-  ##   variable is not an array of matrices, and `1` or more if it is an array of
-  ##   matrices.
+  ##   variable is not an array of matrices, and `1` or more if it is an array
+  ##   of matrices.
   ## transpose
   ##   For the matrix commands, specifies whether to transpose the matrix as the
   ##   values are loaded into the uniform variable.
@@ -678,8 +686,8 @@ proc glUniformMatrix3x2fv*(location: GLint; count: GLsizei;
   ##   `count` values that will be used to update the specified uniform variable.
 
 
-proc glUniformMatrix2x4fv*(location: GLint; count: GLsizei;
-  transpose: GLboolean; value: ptr GLfloat) {.importc.}
+proc glUniformMatrix2x4fv*(location: GlInt; count: GlSizei;
+  transpose: GlBoolean; value: ptr GlFloat) {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
   ## location
@@ -690,8 +698,8 @@ proc glUniformMatrix2x4fv*(location: GLint; count: GLsizei;
   ##   variable is not an array, and `1` or more if it is an array. For the
   ##   matrix (`glUniformMatrix*`) commands, specifies the number of matrices
   ##   that are to be modified. This should be `1` if the targeted uniform
-  ##   variable is not an array of matrices, and `1` or more if it is an array of
-  ##   matrices.
+  ##   variable is not an array of matrices, and `1` or more if it is an array
+  ##   of matrices.
   ## transpose
   ##   For the matrix commands, specifies whether to transpose the matrix as the
   ##   values are loaded into the uniform variable.
@@ -703,8 +711,8 @@ proc glUniformMatrix2x4fv*(location: GLint; count: GLsizei;
   ##   `count` values that will be used to update the specified uniform variable.
 
 
-proc glUniformMatrix4x2fv*(location: GLint; count: GLsizei;
-  transpose: GLboolean; value: ptr GLfloat) {.importc.}
+proc glUniformMatrix4x2fv*(location: GlInt; count: GlSizei;
+  transpose: GlBoolean; value: ptr GlFloat) {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
   ## location
@@ -715,8 +723,8 @@ proc glUniformMatrix4x2fv*(location: GLint; count: GLsizei;
   ##   variable is not an array, and `1` or more if it is an array. For the
   ##   matrix (`glUniformMatrix*`) commands, specifies the number of matrices
   ##   that are to be modified. This should be `1` if the targeted uniform
-  ##   variable is not an array of matrices, and `1` or more if it is an array of
-  ##   matrices.
+  ##   variable is not an array of matrices, and `1` or more if it is an array
+  ##   of matrices.
   ## transpose
   ##   For the matrix commands, specifies whether to transpose the matrix as the
   ##   values are loaded into the uniform variable.
@@ -728,8 +736,8 @@ proc glUniformMatrix4x2fv*(location: GLint; count: GLsizei;
   ##   `count` values that will be used to update the specified uniform variable.
 
 
-proc glUniformMatrix3x4fv*(location: GLint; count: GLsizei;
-  transpose: GLboolean; value: ptr GLfloat) {.importc.}
+proc glUniformMatrix3x4fv*(location: GlInt; count: GlSizei;
+  transpose: GlBoolean; value: ptr GlFloat) {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
   ## location
@@ -740,8 +748,8 @@ proc glUniformMatrix3x4fv*(location: GLint; count: GLsizei;
   ##   variable is not an array, and `1` or more if it is an array. For the
   ##   matrix (`glUniformMatrix*`) commands, specifies the number of matrices
   ##   that are to be modified. This should be `1` if the targeted uniform
-  ##   variable is not an array of matrices, and `1` or more if it is an array of
-  ##   matrices.
+  ##   variable is not an array of matrices, and `1` or more if it is an array
+  ##   of matrices.
   ## transpose
   ##   For the matrix commands, specifies whether to transpose the matrix as the
   ##   values are loaded into the uniform variable.
@@ -753,8 +761,8 @@ proc glUniformMatrix3x4fv*(location: GLint; count: GLsizei;
   ##   `count` values that will be used to update the specified uniform variable.
 
 
-proc glUniformMatrix4x3fv*(location: GLint; count: GLsizei;
-  transpose: GLboolean; value: ptr GLfloat) {.importc.}
+proc glUniformMatrix4x3fv*(location: GlInt; count: GlSizei;
+  transpose: GlBoolean; value: ptr GlFloat) {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
   ## location
@@ -765,8 +773,8 @@ proc glUniformMatrix4x3fv*(location: GLint; count: GLsizei;
   ##   variable is not an array, and `1` or more if it is an array. For the
   ##   matrix (`glUniformMatrix*`) commands, specifies the number of matrices
   ##   that are to be modified. This should be `1` if the targeted uniform
-  ##   variable is not an array of matrices, and `1` or more if it is an array of
-  ##   matrices.
+  ##   variable is not an array of matrices, and `1` or more if it is an array
+  ##   of matrices.
   ## transpose
   ##   For the matrix commands, specifies whether to transpose the matrix as the
   ##   values are loaded into the uniform variable.
@@ -778,9 +786,9 @@ proc glUniformMatrix4x3fv*(location: GLint; count: GLsizei;
   ##   `count` values that will be used to update the specified uniform variable.
 
 
-proc glBlitFramebuffer*(srcX0: GLint; srcY0: GLint; srcX1: GLint; srcY1: GLint;
-  dstX0: GLint; dstY0: GLint; dstX1: GLint; dstY1: GLint; mask: GLbitfield;
-  filter: GLenum) {.importc.}
+proc glBlitFramebuffer*(srcX0: GlInt; srcY0: GlInt; srcX1: GlInt; srcY1: GlInt;
+  dstX0: GlInt; dstY0: GlInt; dstX1: GlInt; dstY1: GlInt; mask: GlBitfield;
+  filter: GlEnum) {.importc.}
   ## Copy a block of pixels from the read framebuffer to the draw framebuffer.
   ##
   ## srcX0, srcY0, srcX1, srcY1
@@ -791,21 +799,21 @@ proc glBlitFramebuffer*(srcX0: GLint; srcY0: GLint; srcX1: GLint; srcY1: GLint;
   ##   of the write framebuffer.
   ## mask
   ##   The bitwise OR of the flags indicating which buffers are to be copied.
-  ##   The allowed flags are `glColorBufferBit`, `glDepthBufferBit` and
-  ##   `glStencilBufferBit`.
+  ##   The allowed flags are `GL_COLOR_BUFFER_BIT`, `GL_DEPTH_BUFFER_BIT` and
+  ##   `GL_STENCIL_BUFFER_BIT`.
   ## filter
   ##   Specifies the interpolation to be applied if the image is stretched. Must
-  ##   be `glNearest` or `glLinear`.
+  ##   be `GL_NEAREST` or `GL_LINEAR`.
 
 
-proc glRenderbufferStorageMultisample*(target: GLenum; samples: GLsizei;
-  internalformat: GLenum; width: GLsizei; height: GLsizei) {.importc.}
+proc glRenderbufferStorageMultisample*(target: GlEnum; samples: GlSizei;
+  internalformat: GlEnum; width: GlSizei; height: GlSizei) {.importc.}
   ## Establish data storage, format, dimensions and sample count of a
   ## renderbuffer object's image.
   ##
   ## target
   ##   Specifies a binding to which the target of the allocation and must be
-  ##   `glRenderbuffer`.
+  ##   `GL_RENDERBUFFER`.
   ## samples
   ##   Specifies the number of samples to be used for the renderbuffer object's
   ##   storage.
@@ -817,18 +825,18 @@ proc glRenderbufferStorageMultisample*(target: GLenum; samples: GLsizei;
   ##   Specifies the height of the renderbuffer, in pixels.
 
 
-proc glFramebufferTextureLayer*(target: GLenum; attachment: GLenum;
-  texture: GLuint; level: GLint; layer: GLint) {.importc.}
+proc glFramebufferTextureLayer*(target: GlEnum; attachment: GlEnum;
+  texture: GlUint; level: GlInt; layer: GlInt) {.importc.}
   ## Attach a single layer of a texture to a framebuffer.
   ##
   ## target
-  ##   Specifies the framebuffer target. target must be `glDrawFramebuffer`,
-  ##   `glReadFramebuffer`, or `glFramebuffer`. `glFramebuffer` is equivalent to
-  ##   `glDrawFramebuffer`.
+  ##   Specifies the framebuffer target. target must be `GL_DRAW_FRAMEBUFFER`,
+  ##   `GL_READ_FRAMEBUFFER`, or `GL_FRAMEBUFFER`. `GL_FRAMEBUFFER` is
+  ##   equivalent to `GL_DRAW_FRAMEBUFFER`.
   ## attachment
   ##   Specifies the attachment point of the framebuffer. `attachment` must be
-  ##   `gLCOLORATTACHMENTi`, `glDepthAttachment`, `glStencilAttachment` or
-  ##   `glDepthStencilAttachmment`.
+  ##   `GL_COLOR_ATTACHMENT`i, `GL_DEPTH_ATTACHMENT`, `GL_STENCIL_ATTACHMENT` or
+  ##   `GL_DEPTH_STENCIL_ATTACHMENT`.
   ## texture
   ##   Specifies the texture object to attach to the framebuffer attachment
   ##   point named by attachment.
@@ -838,8 +846,8 @@ proc glFramebufferTextureLayer*(target: GLenum; attachment: GLenum;
   ##   Specifies the layer of texture to attach.
 
 
-proc glMapBufferRange*(target: GLenum; offset: GLintptr; length: GLsizeiptr;
-  access: GLbitfield): pointer {.importc.}
+proc glMapBufferRange*(target: GlEnum; offset: GlIntptr; length: GlSizeiptr;
+  access: GlBitfield): pointer {.importc.}
   ## Map a section of a buffer object's data store.
   ##
   ## target
@@ -853,29 +861,30 @@ proc glMapBufferRange*(target: GLenum; offset: GLintptr; length: GLsizeiptr;
   ##   the range.
 
 
-proc glFlushMappedBufferRange*(target: GLenum; offset: GLintptr;
-  length: GLsizeiptr) {.importc.}
+proc glFlushMappedBufferRange*(target: GlEnum; offset: GlIntptr;
+  length: GlSizeiptr) {.importc.}
   ## Indicate modifications to a range of a mapped buffer.
   ##
   ## target
   ##   Specifies the target of the flush operation. target must be
-  ##   `glArrayBuffer`, `glCopyReadBuffer`, `glCopyWriteBuffer`,
-  ##   `glElementArrayBuffer`, `glPixelPackBuffer`, `glPixelUnpackBuffer`,
-  ##   `glTransformFeedbackBuffer`, or `glUniformBuffer`.
+  ##   `GL_ARRAY_BUFFER`, `GL_COPY_READ_BUFFER`, `GL_COPY_WRITE_BUFFER`,
+  ##   `GL_ELEMENT_ARRAY_BUFFER`, `GL_PIXEL_PACK_BUFFER`,
+  ##   `GL_PIXEL_UNPACK_BUFFER`, `GL_TRANSFORM_FEEDBACK_BUFFER`, or
+  ##   `GL_UNIFORM_BUFFER`.
   ## offset
   ##   Specifies the start of the buffer subrange, in basic machine units.
   ## length
   ##   Specifies the length of the buffer subrange, in basic machine units.
 
 
-proc glBindVertexArray*(array: GLuint) {.importc.}
+proc glBindVertexArray*(array: GlUint) {.importc.}
   ## Bind a vertex array object.
   ##
   ## array
   ##   Specifies the name of the vertex array to bind.
 
 
-proc glDeleteVertexArrays*(n: GLsizei; arrays: ptr GLuint) {.importc.}
+proc glDeleteVertexArrays*(n: GlSizei; arrays: ptr GlUint) {.importc.}
   ## Delete vertex array objects.
   ##
   ## n
@@ -885,7 +894,7 @@ proc glDeleteVertexArrays*(n: GLsizei; arrays: ptr GLuint) {.importc.}
   ##   to be deleted.
 
 
-proc glGenVertexArrays*(n: GLsizei; arrays: ptr GLuint) {.importc.}
+proc glGenVertexArrays*(n: GlSizei; arrays: ptr GlUint) {.importc.}
   ## Generate vertex array object names.
   ##
   ## n
@@ -895,15 +904,15 @@ proc glGenVertexArrays*(n: GLsizei; arrays: ptr GLuint) {.importc.}
   ##   stored.
 
 
-proc glIsVertexArray*(array: GLuint): GLboolean {.importc.}
+proc glIsVertexArray*(array: GlUint): GlBoolean {.importc.}
   ## Determine if a name corresponds to a vertex array object.
   ##
   ## array
   ##   Specifies a value that may be the name of a vertex array object.
 
 
-proc glGetIntegeriv*(target: GLenum; index: GLuint; data: ptr GLint)
-  {.importc.}
+proc glGetIntegeriv*(target: GlEnum; index: GlUint; data: ptr GlInt)
+  {.importc: "glGetIntegeri_v".}
   ## Return the value or values of a selected parameter.
   ##
   ## pname
@@ -919,7 +928,7 @@ proc glGetIntegeriv*(target: GLenum; index: GLuint; data: ptr GLint)
   ##   Returns the value or values of the specified parameter.
 
 
-proc glBeginTransformFeedback*(primitiveMode: GLenum) {.importc.}
+proc glBeginTransformFeedback*(primitiveMode: GlEnum) {.importc.}
   ## Start transform feedback operation.
   ##
   ## primitiveMode
@@ -931,13 +940,13 @@ proc glEndTransformFeedback*() {.importc.}
   ## End transform feedback operation.
 
 
-proc glBindBufferRange*(target: GLenum; index: GLuint; buffer: GLuint;
-  offset: GLintptr; size: GLsizeiptr) {.importc.}
+proc glBindBufferRange*(target: GlEnum; index: GlUint; buffer: GlUint;
+  offset: GlIntptr; size: GlSizeiptr) {.importc.}
   ## Bind a range within a buffer object to an indexed buffer target.
   ##
   ## target
   ##   Specify the target of the bind operation. `target` must be either
-  ##   `glTransformFeedbackBuffer` or `glUniformBuffer`.
+  ##   `GL_TRANSFORM_FEEDBACK_BUFFER` or `GL_UNIFORM_BUFFER`.
   ## index
   ##   Specify the index of the binding point within the array specified by
   ##   target.
@@ -950,13 +959,13 @@ proc glBindBufferRange*(target: GLenum; index: GLuint; buffer: GLuint;
   ##   object while used as an indexed target.
 
 
-proc glBindBufferBase*(target: GLenum; index: GLuint; buffer: GLuint)
+proc glBindBufferBase*(target: GlEnum; index: GlUint; buffer: GlUint)
   {.importc.}
   ## Bind a buffer object to an indexed buffer target.
   ##
   ## target
   ##   Specify the target of the bind operation. `target` must be either
-  ##   `glTransformFeedbackBuffer` or `glUniformBuffer`.
+  ##   `GL_TRANSFORM_FEEDBACK_BUFFER` or `GL_UNIFORM_BUFFER`.
   ## index
   ##   Specify the index of the binding point within the array specified by
   ##   `target`.
@@ -964,8 +973,8 @@ proc glBindBufferBase*(target: GLenum; index: GLuint; buffer: GLuint)
   ##   The name of a buffer object to bind to the specified binding point.
 
 
-proc glTransformFeedbackVaryings*(program: GLuint; count: GLsizei;
-  varyings: ptr ptr GLchar; bufferMode: GLenum) {.importc.}
+proc glTransformFeedbackVaryings*(program: GlUint; count: GlSizei;
+  varyings: ptr ptr GLchar; bufferMode: GlEnum) {.importc.}
   ## Specify values to record in transform feedback buffers.
   ##
   ## program
@@ -977,13 +986,13 @@ proc glTransformFeedbackVaryings*(program: GLuint; count: GLsizei;
   ##   varying variables to use for transform feedback.
   ## bufferMode
   ##    Identifies the mode used to capture the varying variables when transform
-  ##    feedback is active. bufferMode must be `glInterleavedAttribs` or
-  ##    `glSeparateAttribs`.
+  ##    feedback is active. bufferMode must be `cGL_INTERLEAVED_ATTRIBS` or
+  ##    `GL_SEPARATE_ATTRIBS`.
 
 
-proc glGetTransformFeedbackVarying*(program: GLuint; index: GLuint;
-  bufSize: GLsizei; length: ptr GLsizei; size: ptr GLsizei; `type`: ptr GLenum;
-  name: ptr GLchar) {.importc.}
+proc glGetTransformFeedbackVarying*(program: GlUint; index: GlUint;
+  bufSize: GlSizei; length: ptr GlSizei; size: ptr GlSizei;
+  varyingTypePtr: ptr GlEnum; name: ptr GLchar) {.importc.}
   ## Retrieve information about varying variables selected for transform
   ## feedback.
   ##
@@ -1000,15 +1009,15 @@ proc glGetTransformFeedbackVarying*(program: GLuint; index: GLuint;
   ##   no length is returned.
   ## size
   ##   The address of a variable that will receive the size of the varying.
-  ## type
+  ## varyingTypePtr
   ##   The address of a variable that will recieve the type of the varying.
   ## name
   ##   The address of a buffer into which will be written the name of the
   ##   varying.
 
 
-proc glVertexAttribIPointer*(index: GLuint; size: GLint; `type`: GLenum;
-  stride: GLsizei; pointer: pointer) {.importc.}
+proc glVertexAttribIPointer*(index: GlUint; size: GlInt; componentType: GlEnum;
+  stride: GlSizei; pointer: pointer) {.importc.}
   ## Define an array of generic vertex attribute data.
   ##
   ## index
@@ -1016,30 +1025,30 @@ proc glVertexAttribIPointer*(index: GLuint; size: GLint; `type`: GLenum;
   ## size
   ##   Specifies the number of components per generic vertex attribute. Must be
   ##   `1`, `2`, `3`, `4`. The initial value is `4`.
-  ## type
+  ## componentType
   ##   Specifies the data type of each component in the array. The symbolic
-  ##   constants `glByte`, `glUnsignedByte`, `glShort`, `glUnsignedShort`,
-  ##   `glInt`, and `glUnsignedInt` are accepted by both functions. Additionally
-  ##   `glHalfFloat`, `glFloat`, `glFixed`, `glInt2101010Rev`, and
-  ##   `glUnsignedInt2101010Rev` are accepted by `glVertexAttribPointer`. The
-  ##   initial value is `glFloat`.
+  ##   constants `cGL_BYTE`, `GL_UNSIGNED_BYTE`, `cGL_SHORT`,
+  ##   `GL_UNSIGNED_SHORT`, `cGL_INT`, and `GL_UNSIGNED_INT` are accepted by
+  ##   both functions. Additionally `GL_HALF_FLOAT`, `cGL_FLOAT`, `cGL_FIXED`,
+  ##   `cGL_INT_2_10_10_10_REV`, and `GL_UNSIGNED_INT_2_10_10_10_REV` are
+  ##   accepted by `glVertexAttribPointer`. The initial value is `cGL_FLOAT`.
   ## normalized
   ##   For `glVertexAttribPointer`, specifies whether fixed-point data values
-  ##   should be normalized (`glTrue`) or converted directly as fixed-point
-  ##   values (`glFalse`) when they are accessed. This parameter is ignored if
-  ##   type is `glFixed`.
+  ##   should be normalized (`GL_TRUE`) or converted directly as fixed-point
+  ##   values (`GL_FALSE`) when they are accessed. This parameter is ignored if
+  ##   `componentType` is `cGL_FIXED`.
   ## stride
   ##   Specifies the byte offset between consecutive generic vertex attributes.
   ##   If stride is `0`, the generic vertex attributes are understood to be
   ##   tightly packed in the array. The initial value is `0`.
   ## pointer
   ##   Specifies a pointer to the first generic vertex attribute in the array.
-  ##   If a non-zero buffer is currently bound to the `glArrayBuffer` target,
+  ##   If a non-zero buffer is currently bound to the `GL_ARRAY_BUFFER` target,
   ##   pointer specifies an offset of into the array in the data store of that
   ##   buffer. The initial value is `0`.
 
 
-proc glGetVertexAttribIiv*(index: GLuint; pname: GLenum; params: ptr GLint)
+proc glGetVertexAttribIiv*(index: GlUint; pname: GlEnum; params: ptr GlInt)
   {.importc.}
   ## Return a generic vertex attribute parameter.
   ##
@@ -1047,16 +1056,16 @@ proc glGetVertexAttribIiv*(index: GLuint; pname: GLenum; params: ptr GLint)
   ##   Specifies the generic vertex attribute parameter to be queried.
   ## pname
   ##   Specifies the symbolic name of the vertex attribute parameter to be
-  ##   queried. Accepted values are `glVertexAttribArrayBufferBinding`,
-  ##   `glVertexAttribArrayEnabled`, `glVertexAttribArraySize`,
-  ##   `glVertexAttribArrayStride`, `glVertexAttribArrayType`,
-  ##   `glVertexAttribArrayNormalized`, `glVertexAttribArrayInteger`,
-  ##   `glVertexAttribArrayDivisor`, or `glCurrentVertexAttrib`.
+  ##   queried. Accepted values are `GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING`,
+  ##   `GL_VERTEX_ATTRIB_ARRAY_ENABLED`, `GL_VERTEX_ATTRIB_ARRAY_SIZE`,
+  ##   `GL_VERTEX_ATTRIB_ARRAY_STRIDE`, `GL_VERTEX_ATTRIB_ARRAY_TYPE`,
+  ##   `GL_VERTEX_ATTRIB_ARRAY_NORMALIZED`, `GL_VERTEX_ATTRIB_ARRAY_INTEGER`,
+  ##   `GL_VERTEX_ATTRIB_ARRAY_DIVISOR`, or `GL_CURRENT_VERTEX_ATTRIB`.
   ## params
   ##   Returns the requested data.
 
 
-proc glGetVertexAttribIuiv*(index: GLuint; pname: GLenum; params: ptr GLuint)
+proc glGetVertexAttribIuiv*(index: GlUint; pname: GlEnum; params: ptr GlUint)
   {.importc.}
   ## Return a generic vertex attribute parameter.
   ##
@@ -1064,16 +1073,16 @@ proc glGetVertexAttribIuiv*(index: GLuint; pname: GLenum; params: ptr GLuint)
   ##   Specifies the generic vertex attribute parameter to be queried.
   ## pname
   ##   Specifies the symbolic name of the vertex attribute parameter to be
-  ##   queried. Accepted values are `glVertexAttribArrayBufferBinding`,
-  ##   `glVertexAttribArrayEnabled`, `glVertexAttribArraySize`,
-  ##   `glVertexAttribArrayStride`, `glVertexAttribArrayType`,
-  ##   `glVertexAttribArrayNormalized`, `glVertexAttribArrayInteger`,
-  ##   `glVertexAttribArrayDivisor`, or `glCurrentVertexAttrib`.
+  ##   queried. Accepted values are `GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING`,
+  ##   `GL_VERTEX_ATTRIB_ARRAY_ENABLED`, `GL_VERTEX_ATTRIB_ARRAY_SIZE`,
+  ##   `GL_VERTEX_ATTRIB_ARRAY_STRIDE`, `GL_VERTEX_ATTRIB_ARRAY_TYPE`,
+  ##   `GL_VERTEX_ATTRIB_ARRAY_NORMALIZED`, `GL_VERTEX_ATTRIB_ARRAY_INTEGER`,
+  ##   `GL_VERTEX_ATTRIB_ARRAY_DIVISOR`, or `GL_CURRENT_VERTEX_ATTRIB`.
   ## params
   ##   Returns the requested data.
 
 
-proc glVertexAttribI4i*(index: GLuint; x: GLint; y: GLint; z: GLint; w: GLint)
+proc glVertexAttribI4i*(index: GlUint; x: GlInt; y: GlInt; z: GlInt; w: GlInt)
   {.importc.}
   ## Specifies the value of a generic vertex attribute.
   ##
@@ -1087,8 +1096,8 @@ proc glVertexAttribI4i*(index: GLuint; x: GLint; y: GLint; z: GLint; w: GLint)
   ##   array of values to be used for the generic vertex attribute.
 
 
-proc glVertexAttribI4ui*(index: GLuint; x: GLuint; y: GLuint; z: GLuint;
-  w: GLuint) {.importc.}
+proc glVertexAttribI4ui*(index: GlUint; x: GlUint; y: GlUint; z: GlUint;
+  w: GlUint) {.importc.}
   ## Specifies the value of a generic vertex attribute.
   ##
   ## index
@@ -1101,7 +1110,7 @@ proc glVertexAttribI4ui*(index: GLuint; x: GLuint; y: GLuint; z: GLuint;
   ##   array of values to be used for the generic vertex attribute.
 
 
-proc glVertexAttribI4iv*(index: GLuint; v: ptr GLint) {.importc.}
+proc glVertexAttribI4iv*(index: GlUint; v: ptr GlInt) {.importc.}
   ## Specifies the value of a generic vertex attribute.
   ##
   ## index
@@ -1114,7 +1123,7 @@ proc glVertexAttribI4iv*(index: GLuint; v: ptr GLint) {.importc.}
   ##   array of values to be used for the generic vertex attribute.
 
 
-proc glVertexAttribI4uiv*(index: GLuint; v: ptr GLuint) {.importc.}
+proc glVertexAttribI4uiv*(index: GlUint; v: ptr GlUint) {.importc.}
   ## Specifies the value of a generic vertex attribute.
   ##
   ## index
@@ -1127,7 +1136,7 @@ proc glVertexAttribI4uiv*(index: GLuint; v: ptr GLuint) {.importc.}
   ##   array of values to be used for the generic vertex attribute.
 
 
-proc glGetUniformuiv*(program: GLuint; location: GLint; params: ptr GLuint)
+proc glGetUniformuiv*(program: GlUint; location: GlInt; params: ptr GlUint)
   {.importc.}
   ## Returns the value of a uniform variable.
   ##
@@ -1139,7 +1148,7 @@ proc glGetUniformuiv*(program: GLuint; location: GLint; params: ptr GLuint)
   ##   Returns the value of the specified uniform variable.
 
 
-proc glGetFragDataLocation*(program: GLuint; name: ptr GLchar): GLint
+proc glGetFragDataLocation*(program: GlUint; name: ptr GLchar): GlInt
   {.importc.}
   ## Query the bindings of color numbers to user-defined varying out variables.
   ##
@@ -1150,7 +1159,7 @@ proc glGetFragDataLocation*(program: GLuint; name: ptr GLchar): GLint
   ##   The name of the user-defined varying out variable whose binding to query.
 
 
-proc glUniform1ui*(location: GLint; v0: GLuint) {.importc.}
+proc glUniform1ui*(location: GlInt; v0: GlUint) {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
   ## location
@@ -1174,7 +1183,7 @@ proc glUniform1ui*(location: GLint; v0: GLuint) {.importc.}
   ##   count values that will be used to update the specified uniform variable.
 
 
-proc glUniform2ui*(location: GLint; v0: GLuint; v1: GLuint) {.importc.}
+proc glUniform2ui*(location: GlInt; v0: GlUint; v1: GlUint) {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
   ## location
@@ -1198,7 +1207,7 @@ proc glUniform2ui*(location: GLint; v0: GLuint; v1: GLuint) {.importc.}
   ##   count values that will be used to update the specified uniform variable.
 
 
-proc glUniform3ui*(location: GLint; v0: GLuint; v1: GLuint; v2: GLuint)
+proc glUniform3ui*(location: GlInt; v0: GlUint; v1: GlUint; v2: GlUint)
   {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
@@ -1223,8 +1232,8 @@ proc glUniform3ui*(location: GLint; v0: GLuint; v1: GLuint; v2: GLuint)
   ##   count values that will be used to update the specified uniform variable.
 
 
-proc glUniform4ui*(location: GLint; v0: GLuint; v1: GLuint; v2: GLuint;
-  v3: GLuint) {.importc.}
+proc glUniform4ui*(location: GlInt; v0: GlUint; v1: GlUint; v2: GlUint;
+  v3: GlUint) {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
   ## location
@@ -1248,7 +1257,7 @@ proc glUniform4ui*(location: GLint; v0: GLuint; v1: GLuint; v2: GLuint;
   ##   count values that will be used to update the specified uniform variable.
 
 
-proc glUniform1uiv*(location: GLint; count: GLsizei; value: ptr GLuint)
+proc glUniform1uiv*(location: GlInt; count: GlSizei; value: ptr GlUint)
   {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
@@ -1273,7 +1282,7 @@ proc glUniform1uiv*(location: GLint; count: GLsizei; value: ptr GLuint)
   ##   count values that will be used to update the specified uniform variable.
 
 
-proc glUniform2uiv*(location: GLint; count: GLsizei; value: ptr GLuint)
+proc glUniform2uiv*(location: GlInt; count: GlSizei; value: ptr GlUint)
   {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
@@ -1298,7 +1307,7 @@ proc glUniform2uiv*(location: GLint; count: GLsizei; value: ptr GLuint)
   ##   count values that will be used to update the specified uniform variable.
 
 
-proc glUniform3uiv*(location: GLint; count: GLsizei; value: ptr GLuint)
+proc glUniform3uiv*(location: GlInt; count: GlSizei; value: ptr GlUint)
   {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
@@ -1323,7 +1332,7 @@ proc glUniform3uiv*(location: GLint; count: GLsizei; value: ptr GLuint)
   ##   count values that will be used to update the specified uniform variable.
 
 
-proc glUniform4uiv*(location: GLint; count: GLsizei; value: ptr GLuint)
+proc glUniform4uiv*(location: GlInt; count: GlSizei; value: ptr GlUint)
   {.importc.}
   ## Specify the value of a uniform variable for the current program object.
   ##
@@ -1348,26 +1357,7 @@ proc glUniform4uiv*(location: GLint; count: GLsizei; value: ptr GLuint)
   ##   count values that will be used to update the specified uniform variable.
 
 
-proc glClearBufferiv*(buffer: GLenum; drawbuffer: GLint; value: ptr GLint)
-  {.importc.}
-  ## Clear individual buffers of the currently bound draw framebuffer.
-  ##
-  ## buffer
-  ##   Specify the buffer to clear.
-  ## drawBuffer
-  ##   Specify a particular draw buffer to clear.
-  ## value
-  ##   For color buffers, a pointer to a four-element vector specifying R, G, B
-  ##   and A values to clear the buffer to. For depth buffers, a pointer to a
-  ##   single depth value to clear the buffer to. For stencil buffers, a pointer
-  ##   to a single stencil value to clear the buffer to.
-  ## depth
-  ##   The value to clear a depth render buffer to.
-  ## stencil
-  ##   The value to clear a stencil render buffer to.
-
-
-proc glClearBufferuiv*(buffer: GLenum; drawbuffer: GLint; value: ptr GLuint)
+proc glClearBufferiv*(buffer: GlEnum; drawbuffer: GlInt; value: ptr GlInt)
   {.importc.}
   ## Clear individual buffers of the currently bound draw framebuffer.
   ##
@@ -1386,7 +1376,7 @@ proc glClearBufferuiv*(buffer: GLenum; drawbuffer: GLint; value: ptr GLuint)
   ##   The value to clear a stencil render buffer to.
 
 
-proc glClearBufferfv*(buffer: GLenum; drawbuffer: GLint; value: ptr GLfloat)
+proc glClearBufferuiv*(buffer: GlEnum; drawbuffer: GlInt; value: ptr GlUint)
   {.importc.}
   ## Clear individual buffers of the currently bound draw framebuffer.
   ##
@@ -1405,21 +1395,40 @@ proc glClearBufferfv*(buffer: GLenum; drawbuffer: GLint; value: ptr GLfloat)
   ##   The value to clear a stencil render buffer to.
 
 
-proc glClearBufferfi*(buffer: GLenum; drawbuffer: GLint; depth: GLfloat;
-  stencil: GLint) {.importc.}
+proc glClearBufferfv*(buffer: GlEnum; drawbuffer: GlInt; value: ptr GlFloat)
+  {.importc.}
+  ## Clear individual buffers of the currently bound draw framebuffer.
+  ##
+  ## buffer
+  ##   Specify the buffer to clear.
+  ## drawBuffer
+  ##   Specify a particular draw buffer to clear.
+  ## value
+  ##   For color buffers, a pointer to a four-element vector specifying R, G, B
+  ##   and A values to clear the buffer to. For depth buffers, a pointer to a
+  ##   single depth value to clear the buffer to. For stencil buffers, a pointer
+  ##   to a single stencil value to clear the buffer to.
+  ## depth
+  ##   The value to clear a depth render buffer to.
+  ## stencil
+  ##   The value to clear a stencil render buffer to.
 
 
-proc glGetStringi*(name: GLenum; index: GLuint): ptr GLubyte {.importc.}
+proc glClearBufferfi*(buffer: GlEnum; drawbuffer: GlInt; depth: GlFloat;
+  stencil: GlInt) {.importc.}
+
+
+proc glGetStringi*(name: GlEnum; index: GlUint): ptr GlUbyte {.importc.}
   ## Return a string describing the current GL connection.
   ##
   ## name
-  ##   Specifies a symbolic constant (accepts only the `glExtensions` token).
+  ##   Specifies a symbolic constant (accepts only the `GL_EXTENSIONS` token).
   ## index
   ##   Specifies the index of the string to return.
 
 
-proc glCopyBufferSubData*(readTarget: GLenum; writeTarget: GLenum;
-  readOffset: GLintptr; writeOffset: GLintptr; size: GLsizeiptr) {.importc.}
+proc glCopyBufferSubData*(readTarget: GlEnum; writeTarget: GlEnum;
+  readOffset: GlIntptr; writeOffset: GlIntptr; size: GlSizeiptr) {.importc.}
   ## Copy part of the data store of a buffer object to the data store of another
   ## buffer object.
   ##
@@ -1438,8 +1447,8 @@ proc glCopyBufferSubData*(readTarget: GLenum; writeTarget: GLenum;
   ##   `readtarget` to `writetarget`.
 
 
-proc glGetUniformIndices*(program: GLuint; uniformCount: GLsizei;
-  uniformNames: ptr ptr GLchar; uniformIndices: ptr GLuint) {.importc.}
+proc glGetUniformIndices*(program: GlUint; uniformCount: GlSizei;
+  uniformNames: ptr ptr GLchar; uniformIndices: ptr GlUint) {.importc.}
   ## Retrieve the index of a named uniform block.
   ##
   ## program
@@ -1455,8 +1464,8 @@ proc glGetUniformIndices*(program: GLuint; uniformCount: GLsizei;
   ##   uniforms.
 
 
-proc glGetActiveUniformsiv*(program: GLuint; uniformCount: GLsizei;
-  uniformIndices: ptr GLuint; pname: GLenum; params: ptr GLint) {.importc.}
+proc glGetActiveUniformsiv*(program: GlUint; uniformCount: GlSizei;
+  uniformIndices: ptr GlUint; pname: GlEnum; params: ptr GlInt) {.importc.}
   ## Returns information about several active uniform variables for the
   ## specified program object.
   ##
@@ -1478,8 +1487,8 @@ proc glGetActiveUniformsiv*(program: GLuint; uniformCount: GLsizei;
   ##   receive the value of pname for each uniform in `uniformIndices`.
 
 
-proc glGetUniformBlockIndex*(program: GLuint; uniformBlockName: ptr GLchar):
-  GLuint {.importc.}
+proc glGetUniformBlockIndex*(program: GlUint; uniformBlockName: ptr GLchar):
+  GlUint {.importc.}
   ## Retrieve the index of a named uniform block.
   ##
   ## program
@@ -1489,8 +1498,8 @@ proc glGetUniformBlockIndex*(program: GLuint; uniformBlockName: ptr GLchar):
   ##   uniform block whose index to retrieve.
 
 
-proc glGetActiveUniformBlockiv*(program: GLuint; uniformBlockIndex: GLuint;
-  pname: GLenum; params: ptr GLint) {.importc.}
+proc glGetActiveUniformBlockiv*(program: GlUint; uniformBlockIndex: GlUint;
+  pname: GlEnum; params: ptr GlInt) {.importc.}
   ## Retrieve the name of an active uniform block.
   ##
   ## program
@@ -1507,13 +1516,13 @@ proc glGetActiveUniformBlockiv*(program: GLuint; uniformBlockIndex: GLuint;
   ##   uniform block at `uniformBlockIndex`.
 
 
-proc glGetActiveUniformBlockName*(program: GLuint; uniformBlockIndex: GLuint;
-  bufSize: GLsizei; length: ptr GLsizei; uniformBlockName: ptr GLchar)
+proc glGetActiveUniformBlockName*(program: GlUint; uniformBlockIndex: GlUint;
+  bufSize: GlSizei; length: ptr GlSizei; uniformBlockName: ptr GLchar)
   {.importc.}
 
 
-proc glUniformBlockBinding*(program: GLuint; uniformBlockIndex: GLuint;
-  uniformBlockBinding: GLuint) {.importc.}
+proc glUniformBlockBinding*(program: GlUint; uniformBlockIndex: GlUint;
+  uniformBlockBinding: GlUint) {.importc.}
   ## Assign a binding point to an active uniform block.
   ##
   ## program
@@ -1527,14 +1536,14 @@ proc glUniformBlockBinding*(program: GLuint; uniformBlockIndex: GLuint;
   ##   uniformBlockIndex within program.
 
 
-proc glDrawArraysInstanced*(mode: GLenum; first: GLint; count: GLsizei;
-  instancecount: GLsizei) {.importc.}
+proc glDrawArraysInstanced*(mode: GlEnum; first: GlInt; count: GlSizei;
+  instancecount: GlSizei) {.importc.}
   ## Draw multiple instances of a range of elements.
   ##
   ## mode
   ##   Specifies what kind of primitives to render. Symbolic constants
-  ##   `glPoints`, `glLineStrip`, `glLineLoop`, `glLines`, `glTriangleStrip`,
-  ##   `glTriangleFan` and `glTriangles` are accepted.
+  ##   `GL_POINTS`, `GL_LINE_STRIP`, `GL_LINE_LOOP`, `GL_LINES`,
+  ##   `GL_TRIANGLE_STRIP`, `GL_TRIANGLE_FAN` and `GL_TRIANGLES` are accepted.
   ## first
   ##   Specifies the starting index in the enabled arrays.
   ## count
@@ -1544,69 +1553,69 @@ proc glDrawArraysInstanced*(mode: GLenum; first: GLint; count: GLsizei;
   ##   rendered.
 
 
-proc glDrawElementsInstanced*(mode: GLenum; count: GLsizei; `type`: GLenum;
-  indices: pointer; instancecount: GLsizei) {.importc.}
+proc glDrawElementsInstanced*(mode: GlEnum; count: GlSizei; indexType: GlEnum;
+  indices: pointer; instancecount: GlSizei) {.importc.}
   ## Draw multiple instances of a set of elements.
   ##
   ## mode
   ##   Specifies what kind of primitives to render. Symbolic constants
-  ##   `glPoints`, `glLineStrip`, `glLineLoop`, `glLines`, `glTriangleStrip`,
-  ##   `glTriangleFan` and `glTriangles` are accepted.
+  ##   `GL_POINTS`, `GL_LINE_STRIP`, `GL_LINE_LOOP`, `GL_LINES`,
+  ##   `GL_TRIANGLE_STRIP`, `GL_TRIANGLE_FAN` and `GL_TRIANGLES` are accepted.
   ## count
   ##   Specifies the number of elements to be rendered.
-  ## type
+  ## indexType
   ##   Specifies the type of the values in indices. Must be one of
-  ##   `glUnsignedByte`, `glUnsignedShort`, or `glUnsignedInt`.
+  ##   `GL_UNSIGNED_BYTE`, `GL_UNSIGNED_SHORT`, or `GL_UNSIGNED_INT`.
   ## indices
   ##   Specifies a byte offset (cast to a pointer type) into the buffer bound to
-  ##   `glElementArrayBuffer` to start reading indices from. If no buffer is
+  ##   `GL_ELEMENT_ARRAY_BUFFER` to start reading indices from. If no buffer is
   ##   bound, specifies a pointer to the location where the indices are stored.
   ## primcount
   ##   Specifies the number of instances of the specified range of indices to be
   ##   rendered.
 
 
-proc glFenceSync*(condition: GLenum; flags: GLbitfield): GLsync {.importc.}
+proc glFenceSync*(condition: GlEnum; flags: GlBitfield): GlSync {.importc.}
   ## Create a new sync object and insert it into the GL command stream.
   ##
   ## condition
   ##   Specifies the condition that must be met to set the sync object's state
-  ##   to signaled (must be `glSyncGpuCommandsComplete`).
+  ##   to signaled (must be `GL_SYNC_GPU_COMMANDS_COMPLETE`).
   ## flags
   ##   Specifies a bitwise combination of flags controlling the behavior of the
   ##   sync object. No flags are presently defined for this operation and
   ##   `flags` must be zero.
 
 
-proc glIsSync*(sync: GLsync): GLboolean {.importc.}
+proc glIsSync*(sync: GlSync): GlBoolean {.importc.}
   ## Determine if a name corresponds to a sync object.
   ##
   ## sync
   ##   Specifies a value that may be the name of a sync object.
 
 
-proc glDeleteSync*(sync: GLsync) {.importc.}
+proc glDeleteSync*(sync: GlSync) {.importc.}
   ## Delete a sync object.
   ##
   ## sync
   ##   The sync object to be deleted.
 
 
-proc glClientWaitSync*(sync: GLsync; flags: GLbitfield; timeout: GLuint64):
-  GLenum {.importc.}
+proc glClientWaitSync*(sync: GlSync; flags: GlBitfield; timeout: GlUint64):
+  GlEnum {.importc.}
   ## Block and wait for a sync object to become signaled.
   ##
   ## sync
   ##   The sync object whose status to wait on.
   ## flags
-  ##   A bitfield controlling the command flushing behavior. flags may be
-  ##   `glSyncFlushCommandsBit`.
+  ##   A bitfield controlling the command flushing behavior. `flags` may be
+  ##   `GL_SYNC_FLUSH_COMMANDS_BIT`.
   ## timeout
   ##   The timeout, specified in nanoseconds, for which the implementation
   ##   should wait for sync to become signaled.
 
 
-proc glWaitSync*(sync: GLsync; flags: GLbitfield; timeout: GLuint64) {.importc.}
+proc glWaitSync*(sync: GlSync; flags: GlBitfield; timeout: GlUint64) {.importc.}
   ## Instruct the GL server to block until the specified sync object becomes
   ## signaled.
   ##
@@ -1616,10 +1625,10 @@ proc glWaitSync*(sync: GLsync; flags: GLbitfield; timeout: GLuint64) {.importc.}
   ##   A bitfield controlling the command flushing behavior (must be zero).
   ## timeout
   ##   Specifies the timeout that the server should wait before continuing (must
-  ##   `glTimeoutIgnored`).
+  ##   `GL_TIMEOUT_IGNORED`).
 
 
-proc glGetInteger64v*(pname: GLenum; data: ptr GLint64) {.importc.}
+proc glGetInteger64v*(pname: GlEnum; data: ptr GlInt64) {.importc.}
   ## Return the value or values of a selected parameter.
   ##
   ## pname
@@ -1635,8 +1644,8 @@ proc glGetInteger64v*(pname: GLenum; data: ptr GLint64) {.importc.}
   ##   Returns the value or values of the specified parameter.
 
 
-proc glGetSynciv*(sync: GLsync; pname: GLenum; bufSize: GLsizei;
-  length: ptr GLsizei; values: ptr GLint) {.importc.}
+proc glGetSynciv*(sync: GlSync; pname: GlEnum; bufSize: GlSizei;
+  length: ptr GlSizei; values: ptr GlInt) {.importc.}
   ## Query the properties of a sync object.
   ##
   ## sync
@@ -1650,11 +1659,12 @@ proc glGetSynciv*(sync: GLsync; pname: GLenum; bufSize: GLsizei;
   ##   Specifies the address of an variable to receive the number of integers
   ##   placed in values.
   ## values
-  ##   Specifies the address of an array to receive the values of the queried parameter.
+  ##   Specifies the address of an array to receive the values of the queried
+  ##   parameter.
 
 
-proc glGetInteger64iv*(target: GLenum; index: GLuint; data: ptr GLint64)
-  {.importc.}
+proc glGetInteger64iv*(target: GlEnum; index: GlUint; data: ptr GlInt64)
+  {.importc: "glGetInteger64i_v".}
   ## Return the value or values of a selected parameter.
   ##
   ## pname
@@ -1670,24 +1680,25 @@ proc glGetInteger64iv*(target: GLenum; index: GLuint; data: ptr GLint64)
   ##   Returns the value or values of the specified parameter.
 
 
-proc glGetBufferParameteri64v*(target: GLenum; pname: GLenum;
-  params: ptr GLint64) {.importc.}
+proc glGetBufferParameteri64v*(target: GlEnum; pname: GlEnum;
+  params: ptr GlInt64) {.importc.}
   ## Return parameters of a buffer object.
   ##
   ## target
   ##   Specifies the target buffer object. The symbolic constant must be
-  ##   `glArrayBuffer`, `glCopyReadBuffer`, `glCopyWriteBuffer`,
-  ##   `glElementArrayBuffer`, `glPixelPackBuffer`, `glPixelUnpackBuffer`,
-  ##   `glTransformFeedbackBuffer`, or `glUniformBuffer`.
+  ##   `GL_ARRAY_BUFFER`, `GL_COPY_READ_BUFFER`, `GL_COPY_WRITE_BUFFER`,
+  ##   `GL_ELEMENT_ARRAY_BUFFER`, `GL_PIXEL_PACK_BUFFER`,
+  ##   `GL_PIXEL_UNPACK_BUFFER`, `GL_TRANSFORM_FEEDBACK_BUFFER`, or
+  ##   `GL_UNIFORM_BUFFER`.
   ## value
   ##   Specifies the symbolic name of a buffer object parameter. Accepted values
-  ##   are `glBufferAccessFlags`, `glBufferMapped`, `glBufferMapLength`,
-  ##   `glBufferMapOffset`, `glBufferSize`, or `glBufferUsage`.
+  ##   are `GL_BUFFER_ACCESS_FLAGS`, `GL_BUFFER_MAPPED`, `GL_BUFFER_MAP_LENGTH`,
+  ##   `GL_BUFFER_MAP_OFFSET`, `GL_BUFFER_SIZE`, or `GL_BUFFER_USAGE`.
   ## data
   ##   Returns the requested parameter.
 
 
-proc glGenSamplers*(count: GLsizei; samplers: ptr GLuint) {.importc.}
+proc glGenSamplers*(count: GlSizei; samplers: ptr GlUint) {.importc.}
   ## Generate sampler object names.
   ##
   ## n
@@ -1696,7 +1707,7 @@ proc glGenSamplers*(count: GLsizei; samplers: ptr GLuint) {.importc.}
   ##   Specifies an array in which the generated sampler object names are stored.
 
 
-proc glDeleteSamplers*(count: GLsizei; samplers: ptr GLuint) {.importc.}
+proc glDeleteSamplers*(count: GlSizei; samplers: ptr GlUint) {.importc.}
   ## Delete named sampler objects.
   ##
   ## n
@@ -1705,14 +1716,14 @@ proc glDeleteSamplers*(count: GLsizei; samplers: ptr GLuint) {.importc.}
   ##   Specifies an array of sampler objects to be deleted.
 
 
-proc glIsSampler*(sampler: GLuint): GLboolean {.importc.}
+proc glIsSampler*(sampler: GlUint): GlBoolean {.importc.}
   ## Determine if a name corresponds to a sampler object.
   ##
   ## id
   ##   Specifies a value that may be the name of a sampler object.
 
 
-proc glBindSampler*(unit: GLuint; sampler: GLuint) {.importc.}
+proc glBindSampler*(unit: GlUint; sampler: GlUint) {.importc.}
   ## Bind a named sampler to a texturing target.
   ##
   ## unit
@@ -1721,7 +1732,7 @@ proc glBindSampler*(unit: GLuint; sampler: GLuint) {.importc.}
   ##   Specifies the name of a sampler.
 
 
-proc glSamplerParameteri*(sampler: GLuint; pname: GLenum; param: GLint)
+proc glSamplerParameteri*(sampler: GlUint; pname: GlEnum; param: GlInt)
   {.importc.}
   ## Set sampler parameters.
   ##
@@ -1729,10 +1740,10 @@ proc glSamplerParameteri*(sampler: GLuint; pname: GLenum; param: GLint)
   ##   Specifies the sampler object whose parameter to modify.
   ## pname
   ##   Specifies the symbolic name of a single-valued sampler parameter. `pname`
-  ##   can be one of the following: `glTextureWrapS`, `glTextureWrapT`,
-  ##   `glTextureWrapR`, `glTextureMinFilter`, `glTextureMagFilter`,
-  ##   `glTextureMinLod`, `glTextureMaxLod`, `glTextureCompareMode`, or
-  ##   `glTextureCompareFunc`.
+  ##   can be one of the following: `GL_TEXTURE_WRAP_S`, `GL_TEXTURE_WRAP_T`,
+  ##   `GL_TEXTURE_WRAP_R`, `GL_TEXTURE_MIN_FILTER`, `GL_TEXTURE_MAG_FILTER`,
+  ##   `GL_TEXTURE_MIN_LOD`, `GL_TEXTURE_MAX_LOD`, `GL_TEXTURE_COMPARE_MODE`, or
+  ##   `GL_TEXTURE_COMPARE_FUNC`.
   ## param
   ##   For the scalar commands, specifies the value of `pname`.
   ## params
@@ -1740,7 +1751,7 @@ proc glSamplerParameteri*(sampler: GLuint; pname: GLenum; param: GLint)
   ##   an array where the value or values of pname are stored.
 
 
-proc glSamplerParameteriv*(sampler: GLuint; pname: GLenum; param: ptr GLint)
+proc glSamplerParameteriv*(sampler: GlUint; pname: GlEnum; param: ptr GlInt)
   {.importc.}
   ## Set sampler parameters.
   ##
@@ -1748,10 +1759,10 @@ proc glSamplerParameteriv*(sampler: GLuint; pname: GLenum; param: ptr GLint)
   ##   Specifies the sampler object whose parameter to modify.
   ## pname
   ##   Specifies the symbolic name of a single-valued sampler parameter. `pname`
-  ##   can be one of the following: `glTextureWrapS`, `glTextureWrapT`,
-  ##   `glTextureWrapR`, `glTextureMinFilter`, `glTextureMagFilter`,
-  ##   `glTextureMinLod`, `glTextureMaxLod`, `glTextureCompareMode`, or
-  ##   `glTextureCompareFunc`.
+  ##   can be one of the following: `GL_TEXTURE_WRAP_S`, `GL_TEXTURE_WRAP_T`,
+  ##   `GL_TEXTURE_WRAP_R`, `GL_TEXTURE_MIN_FILTER`, `GL_TEXTURE_MAG_FILTER`,
+  ##   `GL_TEXTURE_MIN_LOD`, `GL_TEXTURE_MAX_LOD`, `GL_TEXTURE_COMPARE_MODE`, or
+  ##   `GL_TEXTURE_COMPARE_FUNC`.
   ## param
   ##   For the scalar commands, specifies the value of `pname`.
   ## params
@@ -1759,7 +1770,7 @@ proc glSamplerParameteriv*(sampler: GLuint; pname: GLenum; param: ptr GLint)
   ##   an array where the value or values of pname are stored.
 
 
-proc glSamplerParameterf*(sampler: GLuint; pname: GLenum; param: GLfloat)
+proc glSamplerParameterf*(sampler: GlUint; pname: GlEnum; param: GlFloat)
   {.importc.}
   ## Set sampler parameters.
   ##
@@ -1767,10 +1778,10 @@ proc glSamplerParameterf*(sampler: GLuint; pname: GLenum; param: GLfloat)
   ##   Specifies the sampler object whose parameter to modify.
   ## pname
   ##   Specifies the symbolic name of a single-valued sampler parameter. `pname`
-  ##   can be one of the following: `glTextureWrapS`, `glTextureWrapT`,
-  ##   `glTextureWrapR`, `glTextureMinFilter`, `glTextureMagFilter`,
-  ##   `glTextureMinLod`, `glTextureMaxLod`, `glTextureCompareMode`, or
-  ##   `glTextureCompareFunc`.
+  ##   can be one of the following: `GL_TEXTURE_WRAP_S`, `GL_TEXTURE_WRAP_T`,
+  ##   `GL_TEXTURE_WRAP_R`, `GL_TEXTURE_MIN_FILTER`, `GL_TEXTURE_MAG_FILTER`,
+  ##   `GL_TEXTURE_MIN_LOD`, `GL_TEXTURE_MAX_LOD`, `GL_TEXTURE_COMPARE_MODE`, or
+  ##   `GL_TEXTURE_COMPARE_FUNC`.
   ## param
   ##   For the scalar commands, specifies the value of `pname`.
   ## params
@@ -1778,7 +1789,7 @@ proc glSamplerParameterf*(sampler: GLuint; pname: GLenum; param: GLfloat)
   ##   an array where the value or values of pname are stored.
 
 
-proc glSamplerParameterfv*(sampler: GLuint; pname: GLenum; param: ptr GLfloat)
+proc glSamplerParameterfv*(sampler: GlUint; pname: GlEnum; param: ptr GlFloat)
   {.importc.}
   ## Set sampler parameters.
   ##
@@ -1786,10 +1797,10 @@ proc glSamplerParameterfv*(sampler: GLuint; pname: GLenum; param: ptr GLfloat)
   ##   Specifies the sampler object whose parameter to modify.
   ## pname
   ##   Specifies the symbolic name of a single-valued sampler parameter. `pname`
-  ##   can be one of the following: `glTextureWrapS`, `glTextureWrapT`,
-  ##   `glTextureWrapR`, `glTextureMinFilter`, `glTextureMagFilter`,
-  ##   `glTextureMinLod`, `glTextureMaxLod`, `glTextureCompareMode`, or
-  ##   `glTextureCompareFunc`.
+  ##   can be one of the following: `GL_TEXTURE_WRAP_S`, `GL_TEXTURE_WRAP_T`,
+  ##   `GL_TEXTURE_WRAP_R`, `GL_TEXTURE_MIN_FILTER`, `GL_TEXTURE_MAG_FILTER`,
+  ##   `GL_TEXTURE_MIN_LOD`, `GL_TEXTURE_MAX_LOD`, `GL_TEXTURE_COMPARE_MODE`, or
+  ##   `GL_TEXTURE_COMPARE_FUNC`.
   ## param
   ##   For the scalar commands, specifies the value of `pname`.
   ## params
@@ -1797,37 +1808,39 @@ proc glSamplerParameterfv*(sampler: GLuint; pname: GLenum; param: ptr GLfloat)
   ##   an array where the value or values of pname are stored.
 
 
-proc glGetSamplerParameteriv*(sampler: GLuint; pname: GLenum;
-                              params: ptr GLint) {.importc.}
+proc glGetSamplerParameteriv*(sampler: GlUint; pname: GlEnum;
+                              params: ptr GlInt) {.importc.}
   ## Return sampler parameter values.
   ##
   ## sampler
   ##   Specifies name of the sampler object from which to retrieve parameters.
   ## pname
-  ##   Specifies the symbolic name of a sampler parameter. `glTextureMagFilter`,
-  ##   `glTextureMinFilter`, `glTextureMinLod`, `glTextureMaxLod`,
-  ##   `glTextureWrapS`, `glTextureWrapT`, `glTextureWrapR`,
-  ##   `glTextureCompareMode`, and `glTextureCompareFunc` are accepted.
+  ##   Specifies the symbolic name of a sampler parameter.
+  ##   `GL_TEXTURE_MAG_FILTER`, `GL_TEXTURE_MIN_FILTER`, `GL_TEXTURE_MIN_LOD`,
+  ##   `GL_TEXTURE_MAX_LOD`, `GL_TEXTURE_WRAP_S`, `GL_TEXTURE_WRAP_T`,
+  ##   `GL_TEXTURE_WRAP_R`, `GL_TEXTURE_COMPARE_MODE`, and
+  ##   `GL_TEXTURE_COMPARE_FUNC` are accepted.
   ## params
   ##   Returns the sampler parameters.
 
 
-proc glGetSamplerParameterfv*(sampler: GLuint; pname: GLenum;
-                              params: ptr GLfloat) {.importc.}
+proc glGetSamplerParameterfv*(sampler: GlUint; pname: GlEnum;
+                              params: ptr GlFloat) {.importc.}
   ## Return sampler parameter values.
   ##
   ## sampler
   ##   Specifies name of the sampler object from which to retrieve parameters.
   ## pname
-  ##   Specifies the symbolic name of a sampler parameter. `glTextureMagFilter`,
-  ##   `glTextureMinFilter`, `glTextureMinLod`, `glTextureMaxLod`,
-  ##   `glTextureWrapS`, `glTextureWrapT`, `glTextureWrapR`,
-  ##   `glTextureCompareMode`, and `glTextureCompareFunc` are accepted.
+  ##   Specifies the symbolic name of a sampler parameter.
+  ##   `GL_TEXTURE_MAG_FILTER`, `GL_TEXTURE_MIN_FILTER`, `GL_TEXTURE_MIN_LOD`,
+  ##   `GL_TEXTURE_MAX_LOD`, `GL_TEXTURE_WRAP_S`, `GL_TEXTURE_WRAP_T`,
+  ##   `GL_TEXTURE_WRAP_R`, `GL_TEXTURE_COMPARE_MODE`, and
+  ##   `GL_TEXTURE_COMPARE_FUNC` are accepted.
   ## params
   ##   Returns the sampler parameters.
 
 
-proc glVertexAttribDivisor*(index: GLuint; divisor: GLuint) {.importc.}
+proc glVertexAttribDivisor*(index: GlUint; divisor: GlUint) {.importc.}
   ## Modify the rate at which generic vertex attributes advance during instanced
   ## rendering.
   ##
@@ -1838,18 +1851,18 @@ proc glVertexAttribDivisor*(index: GLuint; divisor: GLuint) {.importc.}
   ##   generic attribute at slot `index`.
 
 
-proc glBindTransformFeedback*(target: GLenum; id: GLuint) {.importc.}
+proc glBindTransformFeedback*(target: GlEnum; id: GlUint) {.importc.}
   ## Bind a transform feedback object.
   ##
   ## target
   ##   Specifies the target to which to bind the transform feedback object id
-  ##   (must be `glTransformFeedback`).
+  ##   (must be `GL_TRANSFORM_FEEDBACK`).
   ## id
   ##  Specifies the name of a transform feedback object reserved by
   ##  `glGenTransformFeedbacks <#glGenTransformFeedbacks>`_.
 
 
-proc glDeleteTransformFeedbacks*(n: GLsizei; ids: ptr GLuint) {.importc.}
+proc glDeleteTransformFeedbacks*(n: GlSizei; ids: ptr GlUint) {.importc.}
   ## Delete transform feedback objects.
   ##
   ## n
@@ -1858,7 +1871,7 @@ proc glDeleteTransformFeedbacks*(n: GLsizei; ids: ptr GLuint) {.importc.}
   ##   Specifies an array of names of transform feedback objects to delete.
 
 
-proc glGenTransformFeedbacks*(n: GLsizei; ids: ptr GLuint) {.importc.}
+proc glGenTransformFeedbacks*(n: GlSizei; ids: ptr GlUint) {.importc.}
   ## Reserve transform feedback object names.
   ##
   ## n
@@ -1867,7 +1880,7 @@ proc glGenTransformFeedbacks*(n: GLsizei; ids: ptr GLuint) {.importc.}
   ##   Specifies an array of into which the reserved names will be written.
 
 
-proc glIsTransformFeedback*(id: GLuint): GLboolean {.importc.}
+proc glIsTransformFeedback*(id: GlUint): GlBoolean {.importc.}
   ## Determine if a name corresponds to a transform feedback object.
   ##
   ## id
@@ -1882,8 +1895,8 @@ proc glResumeTransformFeedback*() {.importc.}
   ## Resume transform feedback operations.
 
 
-proc glGetProgramBinary*(program: GLuint; bufSize: GLsizei; length: ptr GLsizei;
-  binaryFormat: ptr GLenum; binary: pointer) {.importc.}
+proc glGetProgramBinary*(program: GlUint; bufSize: GlSizei; length: ptr GlSizei;
+  binaryFormat: ptr GlEnum; binary: pointer) {.importc.}
   ## Return a binary representation of a program object's compiled and linked
   ## executable source.
   ##
@@ -1903,8 +1916,8 @@ proc glGetProgramBinary*(program: GLuint; bufSize: GLsizei; length: ptr GLsizei;
   ##   binary representation.
 
 
-proc glProgramBinary*(program: GLuint; binaryFormat: GLenum; binary: pointer;
-  length: GLsizei) {.importc.}
+proc glProgramBinary*(program: GlUint; binaryFormat: GlEnum; binary: pointer;
+  length: GlSizei) {.importc.}
   ## Load a program object with a program binary.
   ##
   ## program
@@ -1919,7 +1932,7 @@ proc glProgramBinary*(program: GLuint; binaryFormat: GLenum; binary: pointer;
   ##   Specifies the number of bytes contained in binary.
 
 
-proc glProgramParameteri*(program: GLuint; pname: GLenum; value: GLint)
+proc glProgramParameteri*(program: GlUint; pname: GlEnum; value: GlInt)
   {.importc.}
   ## Specify a parameter for a program object.
   ##
@@ -1931,25 +1944,27 @@ proc glProgramParameteri*(program: GLuint; pname: GLenum; value: GLint)
   ##   Specifies the new value of the parameter specified by `pname` for program.
 
 
-proc glInvalidateFramebuffer*(target: GLenum; numAttachments: GLsizei;
-  attachments: ptr GLenum) {.importc.}
+proc glInvalidateFramebuffer*(target: GlEnum; numAttachments: GlSizei;
+  attachments: ptr GlEnum) {.importc.}
   ## Invalidate the contents of attachments within a framebuffer.
   ##
   ## target
-  ##   Specifies the target of the invalidate operation. Must be `glFramebuffer`.
+  ##   Specifies the target of the invalidate operation.
+  ##   Must be `GL_FRAMEBUFFER`.
   ## numAttachments
   ##   Specifies how many attachments are supplied in the attachments list.
   ## attachments
   ##   A list of numAttachments attachments to invalidate.
 
 
-proc glInvalidateSubFramebuffer*(target: GLenum; numAttachments: GLsizei;
-  attachments: ptr GLenum; x: GLint; y: GLint; width: GLsizei; height: GLsizei)
+proc glInvalidateSubFramebuffer*(target: GlEnum; numAttachments: GlSizei;
+  attachments: ptr GlEnum; x: GlInt; y: GlInt; width: GlSizei; height: GlSizei)
   {.importc.}
   ## Invalidate portions of the contents of attachments within a framebuffer.
   ##
   ## target
-  ##   Specifies the target of the invalidate operation. Must be `glFramebuffer`.
+  ##   Specifies the target of the invalidate operation.
+  ##   Must be `GL_FRAMEBUFFER`.
   ## numAttachments
   ##   Specifies how many attachments are supplied in the attachments list.
   ## attachments
@@ -1966,31 +1981,32 @@ proc glInvalidateSubFramebuffer*(target: GLenum; numAttachments: GLsizei;
   ##   Specifies the height of the pixel rectangle to invalidate.
 
 
-proc glTexStorage2D*(target: GLenum; levels: GLsizei; internalformat: GLenum;
-  width: GLsizei; height: GLsizei) {.importc.}
+proc glTexStorage2D*(target: GlEnum; levels: GlSizei; internalformat: GlEnum;
+  width: GlSizei; height: GlSizei) {.importc.}
   ## Simultaneously specify storage for all levels of a two-dimensional texture.
   ##
   ## target
-  ##   Specify the target of the operation. target must be one of `glTexture2d`,
-  ##   or `glTextureCubeMap`.
+  ##   Specify the target of the operation. Must be one of `GL_TEXTURE_2D`,
+  ##   or `GL_TEXTURE_CUBE_MAP`.
   ## levels
   ##   Specify the number of texture levels.
   ## internalformat
-  ##   Specifies the sized internal format to be used to store texture image data.
+  ##   Specifies the sized internal format to be used to store texture image
+  ##   data.
   ## width
   ##   Specifies the width of the texture, in texels.
   ## height
   ##   Specifies the height of the texture, in texels.
 
 
-proc glTexStorage3D*(target: GLenum; levels: GLsizei; internalformat: GLenum;
-  width: GLsizei; height: GLsizei; depth: GLsizei) {.importc.}
+proc glTexStorage3D*(target: GlEnum; levels: GlSizei; internalformat: GlEnum;
+  width: GlSizei; height: GlSizei; depth: GlSizei) {.importc.}
   ## Simultaneously specify storage for all levels of a three-dimensional or
   ## two-dimensional array texture.
   ##
   ## target
-  ##   Specify the target of the operation. target must be one of `glTexture3d`,
-  ##   or `glTexture2dArray`.
+  ##   Specify the target of the operation. Must be one of `GL_TEXTURE3D`,
+  ##   or `GL_TEXTURE_2D_ARRAY`.
   ## levels
   ##   Specify the number of texture levels.
   ## internalformat
@@ -2004,13 +2020,13 @@ proc glTexStorage3D*(target: GLenum; levels: GLsizei; internalformat: GLenum;
   ##   Specifies the depth of the texture, in texels.
 
 
-proc glGetInternalformativ*(target: GLenum; internalformat: GLenum;
-  pname: GLenum; bufSize: GLsizei; params: ptr GLint) {.importc.}
+proc glGetInternalformativ*(target: GlEnum; internalformat: GlEnum;
+  pname: GlEnum; bufSize: GlSizei; params: ptr GlInt) {.importc.}
   ## Retrieve information about implementation-dependent support for internal
   ## formats.
   ##
   ## target
-  ##   Indicates the usage of the internal format (must be `glRenderbuffer`).
+  ##   Indicates the usage of the internal format (must be `GL_RENDERBUFFER`).
   ## internalformat
   ##   Specifies the internal format about which to retrieve information.
   ## pname
