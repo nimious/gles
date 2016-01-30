@@ -1,5 +1,5 @@
 [Package]
-name: "io-gles"
+name: "gles"
 version: "0.1"
 author: "Gerke Max Preussner <info@nimio.us>"
 description: "Bindings for OpenGL ES, the embedded 3D graphics library"

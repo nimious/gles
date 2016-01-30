@@ -1,13 +1,13 @@
-# io-gles
+# gles
 
 Nim bindings for OpenGL ES, the embedded 3D graphics library.
 
-![io-gles Logo](logo.png)
+![gles Logo](docs/logo.png)
 
 
 ## About
 
-io-gles contains bindings to OpenGL ES for the [Nim](http://nim-lang.org)
+This package contains bindings to OpenGL ES for the [Nim](http://nim-lang.org)
 programming language. OpenGL ES, a well-defined subset of OpenGL, is a
 royalty-free, cross-platform API for full-function 2D and 3D graphics on
 embedded systems, including consoles, phones, appliances and vehicles.
@@ -25,7 +25,7 @@ TODO
 
 ## Dependencies
 
-io-gles does not have any dependencies to other Nim packages at this time.
+This package does not have any dependencies to other Nim packages at this time.
 
 
 ## Usage
@@ -35,8 +35,8 @@ TODO
 
 ## Support
 
-Please [file an issue](https://github.com/nimious/io-gles/issues), submit a
-[pull request](https://github.com/nimious/io-gles/pulls?q=is%3Aopen+is%3Apr)
+Please [file an issue](https://github.com/nimious/gles/issues), submit a
+[pull request](https://github.com/nimious/gles/pulls?q=is%3Aopen+is%3Apr)
 or email us at info@nimio.us if this package is out of date or contains bugs.
 
 

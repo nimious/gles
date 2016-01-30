@@ -1,4 +1,4 @@
-## *io-gles* - Nim bindings for OpenGL ES, the embedded 3D graphics library.
+## *gles* - Nim bindings for OpenGL ES, the embedded 3D graphics library.
 ##
 ## This file is part of the `Nim I/O <http://nimio.us>`_ package collection.
 ## See the file LICENSE included in this distribution for licensing details.
